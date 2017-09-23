@@ -21,8 +21,8 @@ Candidate Objects
 
 
 # Testing #
-[ ] Create a Class called GuitarTester,
-[ ] in main() include appropriate tests to test the core functionality of the program
+- [ ] Create a Class called GuitarTester,
+- [ ] in main() include appropriate tests to test the core functionality of the program
 each test should include appropriate print statements to understand the test and the outcome of the test once your program is run.
 
 
