@@ -1,6 +1,6 @@
 # Rick’s inventory #
 
-***CORE MISSION: Finding the perfect instrument for his customers***
+## CORE MISSION: Finding the perfect instrument for his customers ##
 
 ### About Rick ###
  * has been selling guitars for many years
@@ -17,7 +17,7 @@
 
 ### Expectations ###
  * _Computer inventory program with a search tool_ to help him match up a customer to his dream instrument
- * could hire someone to help him mange the inventory
+ * could hire someone to help him manage the inventory
  * adding, removing and modifying entries should be his new fav task
  * anxious to test a version that allows him to:
     * use the new search tool, and 
