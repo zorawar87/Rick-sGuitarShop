@@ -1,6 +1,29 @@
-# Rick’s inventory# 
+# Rick’s inventory #
 
-###Candidate Objects###
+***CORE MISSION: Finding the perfect instrument for his customers***
+
+### About Rick ###
+ * has been selling guitars for many years
+ * expert in guitars
+ * specialises in finding the perfect instrument for his customers
+ * all his guitars made the list of top 10 guitar brands in the world 
+
+
+### Current System ###
+ * paper-based guitar inventory system
+ * keeps a list of all guitars in stock {what happens to guitars out-of-stock?}
+ * For each guitar keeps track of 7 properties (below)
+ * Meets a new customer, gets to know their needs through a friendly conversation about their prefs and experience. Then consults the list.
+
+### Expectations ###
+ * _Computer inventory program with a search tool_ to help him match up a customer to his dream instrument
+ * could hire someone to help him mange the inventory
+ * adding, removing and modifying entries should be his new fav task
+ * anxious to test a version that allows him to:
+    * use the new search tool, and 
+    * manage the inventory asap.
+
+### Candidate Objects ###
 * Guitar 
   * keeps a list of all guitars in stock
   * for each guitar, keeps track of
@@ -13,10 +36,12 @@
     7. type of back wood = Rosewood|Alder|Mahogany|Cedar
 * Customer
 * Transaction
-* when meeting a new customer, gets to know their:
-  * customer’s preferences and,
-  * music experience,
-* then consults his list
+
+### Suggestion ###
+1. When meeting a new customer, get to know their:
+  * customer’s preferences, and
+  * musical experience.
+2. Consult the list
 * add, remove and modify guitar entries
 
 
