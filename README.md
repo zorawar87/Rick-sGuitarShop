@@ -1,7 +1,6 @@
-Candidate Objects
+# Rick’s inventory# 
 
-
-# Rick’s inventory :: Objects # 
+###Candidate Objects###
 * Guitar 
   * keeps a list of all guitars in stock
   * for each guitar, keeps track of
@@ -13,14 +12,16 @@ Candidate Objects
     6. type of top wood = 
     7. type of back wood
     8. Wood = Rosewood|Alder|Mahogany|Cedar
-    9. Customer
-    10. Transaction
+* Customer
+* Transaction
 * when meeting a new customer, gets to know their:
-  * customer’s preferences and music experience, then consults his list
-  * add, remove and modify guitar entries
+  * customer’s preferences and,
+  * music experience,
+* then consults his list
+* add, remove and modify guitar entries
 
 
-# Testing #
+### Testing ###
 - [ ] Create a Class called GuitarTester,
 - [ ] in main() include appropriate tests to test the core functionality of the program
 each test should include appropriate print statements to understand the test and the outcome of the test once your program is run.
