@@ -9,9 +9,8 @@
     3. brand = Gibson|Fender|Ibanez|Paul_Reed_Smith|Epiphone|Jackson|Taylor|Martin|Yamaha|Rickenbacker
     4. model
     5. type = Acoustic|Electric
-    6. type of top wood = 
-    7. type of back wood
-    8. Wood = Rosewood|Alder|Mahogany|Cedar
+    6. type of top wood = Rosewood|Alder|Mahogany|Cedar
+    7. type of back wood = Rosewood|Alder|Mahogany|Cedar
 * Customer
 * Transaction
 * when meeting a new customer, gets to know their:
