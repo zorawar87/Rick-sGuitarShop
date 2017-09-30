@@ -2,7 +2,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class GuitarTester {
+/**
+ * @author Zorawar Moolenaar
+ * @version 0.5
+ */
+public class Tester {
   static Inventory inv = new Inventory();
 
   /**
@@ -72,10 +76,11 @@ public class GuitarTester {
       Scanner sc = new Scanner (System.in);
       ch = 0;
       Guitar g = new Guitar();
+      System.out.println ("\tPlease replace any spaces in words with '_' (underscore) characters.");
       try {
         System.out.print ("\t\tBrand: "); g.setBrand (GuitarBrand.valueOf (sc.nextLine().toUpperCase()));
         System.out.print ("\t\tModel: "); g.setModel (sc.nextLine());
-        System.out.print ("\t\tPrice: "); g.setPrice (sc.nextInt());
+        System.out.print ("\t\tPrice: "); g.setPrice (sc.nextFloat());
         sc = new Scanner (System.in);
         System.out.print ("\t\tAcoustic/Electric?: "); g.setType (GuitarType.valueOf (sc.nextLine().toUpperCase()));
         sc = new Scanner (System.in);
@@ -83,7 +88,7 @@ public class GuitarTester {
         sc = new Scanner (System.in);
         System.out.print ("\t\tType of back wood: "); g.setBackWood (GuitarWood.valueOf (sc.nextLine().toUpperCase()));
         inv.addToCollection (g);
-        System.out.print ("\tAdd was successful? Would you like to add more? (1/0) "); ch = sc.nextInt();
+        System.out.print ("\tAdd was successful! Would you like to add more? (1/0) "); ch = sc.nextInt();
       } catch (Exception e) {
         System.out.println ("\tAborting. Error.");
       }
@@ -115,7 +120,7 @@ public class GuitarTester {
       Integer sn = sc.nextInt();
       if (!inv.sell (sn)) return;
       if (!inv.collection.isEmpty())
-        System.out.print ("\tRemove was successful? Would you like to delete more? (1/0) "); ch = sc.nextInt();
+        System.out.print ("\tRemove was successful! Would you like to delete more? (1/0) "); ch = sc.nextInt();
     } while (ch == 1);
   }
 

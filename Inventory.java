@@ -2,6 +2,10 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * @author Zorawar Moolenaar
+ * @version 0.5
+ */
 public class Inventory {
   HashMap<Integer, Guitar> collection, sales; //available collection, sales map
   ArrayList<Guitar> results; //list containing search results
@@ -79,7 +83,7 @@ public class Inventory {
    * @param s Property to search by
    * @return ArrayList containing [1,N] guitars, or null
    */
-  public ArrayList searchByProperties (Collection<Guitar> c, String s) {
+  public ArrayList<Guitar> searchByProperties (Collection<Guitar> c, String s) {
     results = new ArrayList<Guitar> (Guitar.COUNTER);
     for (Guitar g : c)
       if (g.contains (s))
@@ -94,7 +98,7 @@ public class Inventory {
    * @param s Property to search by
    * @return Guitar complete object if found, or null
    */
-  public ArrayList searchByProperties (String s) {
+  public ArrayList<Guitar> searchByProperties (String s) {
     return searchByProperties (collection.values(), s);
   }
 

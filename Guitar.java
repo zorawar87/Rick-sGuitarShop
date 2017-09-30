@@ -49,6 +49,10 @@ enum GuitarBrand {
   }
 }
 
+/**
+ * @author Zorawar Moolenaar
+ * @version 0.5
+ */
 public class Guitar {
   /** Keeps track of total items that have existed and helps assign s.no. */
   static int COUNTER = 0;
