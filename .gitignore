@@ -1,3 +1,4 @@
+out/*
 # Swap files
 .*.swp
 
