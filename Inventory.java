@@ -85,6 +85,7 @@ public class Inventory {
    */
   public ArrayList<Guitar> searchByProperties (Collection<Guitar> c, String s) {
     results = new ArrayList<Guitar> (Guitar.COUNTER);
+    if (c.isEmpty()) {System.out.println ("Nothing to search."); return null;}
     for (Guitar g : c)
       if (g.contains (s))
         results.add (g);
@@ -102,6 +103,8 @@ public class Inventory {
     return searchByProperties (collection.values(), s);
   }
 
+  public Collection<Guitar> getCollectionContents(){return collection.values();}
+  public Collection<Guitar> getSalesContents(){return collection.values();}
   /*
    * Table Generation Helpers
    */

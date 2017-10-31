@@ -1,81 +1,22 @@
 /**
- * Represents Guitar Type
- */
-enum GuitarType {
-  ACOUSTIC ("Acoustic"), ELECTRIC ("Electric");
-  String name;
-  GuitarType (String s) {
-    name = s;
-  }
-  /**
-   * Overrides toString representation
-   */
-  public String toString() {
-    return name;
-  }
-}
-
-/**
- * Represents Guitar Wood Type
- */
-enum GuitarWood {
-  ROSEWOOD ("Rosewood"), ALDER ("Alder"), MAHOGANY ("Mahogany"), CEDAR ("Cedar");
-  String name;
-  GuitarWood (String s) {
-    name = s;
-  }
-  /**
-   * Overrides toString representation
-   */
-  public String toString() {
-    return name;
-  }
-}
-
-/**
- * Represents Guitar Brand
- */
-enum GuitarBrand {
-  GIBSON ("Gibson"), FENDER ("Fender"), IBANEZ ("Ibanez"), PAUL_REED_SMITH ("Paul Reed Smith"), EPIPHONE ("Epiphone"), JACKSON ("Jackson"), TAYLOR ("Taylor"), MARTIN ("Martin"), YAMAHA ("Yamaha"), RICKENBACKER ("Rickenbacker");
-  String name;
-  GuitarBrand (String s) {
-    name = s;
-  }
-  /**
-   * Overrides toString representation
-   */
-  public String toString() {
-    return name;
-  }
-}
-
-/**
  * @author Zorawar Moolenaar
  * @version 0.5
  */
 public class Guitar {
-  /** Keeps track of total items that have existed and helps assign s.no. */
   static int COUNTER = 0;
-  /** Serial number of the guitar */
   int sno;
-  /** Guitar brand that draws from the eponymous enum */
   GuitarBrand brand;
-  /** Represents the model of the guitar */
   String model;
-  /** Price of the guitar */
   float price;
-  /** Guitar Type that draws from the eponymous enum */
   GuitarType type;
-  /** Guitar Wood Type for top and bottom that draws from the eponymous enum */
   GuitarWood topWood, backWood;
 
   /**
    * Default Constructor
    */
-  public Guitar () {
+  public Guitar(){
     this (null, null, -1, null, null, null);
   }
-
   /**
    * Parameterized Constructor
    * @param b brand of the guitar
