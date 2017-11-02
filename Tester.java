@@ -1,3 +1,5 @@
+package com.guitarshop;
+
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -15,10 +17,12 @@ public class Tester {
    */
   public static void main (String args[]) {
     insert();
+    /*
     remove();
     modify();
     search();
-    display (inv.getCollectionContents());
+    */
+    display (inv.getStockContents());
     display (inv.getSalesContents());
   }
 
@@ -27,28 +31,37 @@ public class Tester {
    * Allows user to insert a guitar through the command line
    */
   public static void insert () {
-    Guitar g = new Guitar (GuitarBrand.GIBSON, "something", 123, GuitarType.ACOUSTIC, GuitarWood.CEDAR, GuitarWood.CEDAR);
+    Guitar g = new Guitar();
+    g = g.builder()
+        .withBrand ("Gibson").withModel ("something").withPrice (123).withSoundType ("Acoustic").withWood ("Cedar", "Cedar").build();
     inv.addToCollection (g);
-    g = new Guitar (GuitarBrand.FENDER, "else", 622, GuitarType.ELECTRIC, GuitarWood.ALDER, GuitarWood.ALDER);
+    /*
+    Guitar g = new Guitar (Brand.GIBSON, "something", 123, SoundType.ACOUSTIC,
+                           Wood.CEDAR, Wood.CEDAR);
+    g = new Guitar (Brand.FENDER, "else", 622, SoundType.ELECTRIC, Wood.ALDER,
+                    Wood.ALDER);
     inv.addToCollection (g);
-    g = new Guitar (GuitarBrand.IBANEZ, "adjshds", 322, GuitarType.ACOUSTIC, GuitarWood.ROSEWOOD, GuitarWood.ALDER);
+    g = new Guitar (Brand.IBANEZ, "adjshds", 322, SoundType.ACOUSTIC, Wood.ROSEWOOD,
+                    Wood.ALDER);
     inv.addToCollection (g);
-    g = new Guitar (GuitarBrand.PAUL_REED_SMITH, "skladj", 521, GuitarType.ELECTRIC, GuitarWood.ALDER, GuitarWood.MAHOGANY);
+    g = new Guitar (Brand.PAUL_REED_SMITH, "skladj", 521, SoundType.ELECTRIC,
+                    Wood.ALDER, Wood.MAHOGANY);
     inv.addToCollection (g);
-    g = new Guitar (GuitarBrand.MARTIN, "cxiicv", 599, GuitarType.ACOUSTIC, GuitarWood.CEDAR, GuitarWood.ROSEWOOD);
+    g = new Guitar (Brand.MARTIN, "cxiicv", 599, SoundType.ACOUSTIC, Wood.CEDAR,
+                    Wood.ROSEWOOD);
     inv.addToCollection (g);
+    */
   }
 
 
   /**
-   * Allows user to remove guitars from command line
+   * Allows user to remove -- sell -- guitars from command line
+   * <p>
+   * remove implies sell because we assume data entry has been done correctly
    */
   public static void remove() {
     System.out.print ("Removing Serial number 2.");
     int serialNo = 2;
-    if (!inv.sell (serialNo)) return;
-    if (!inv.collection.isEmpty())
-      System.out.print ("\tRemove was successful! Would you like to delete more? (1/0) "); 
   }
 
   public static void modify() {
@@ -63,11 +76,11 @@ public class Tester {
       Scanner sc = new Scanner (System.in);
       ch = 0;
       System.out.print ("Please mention a search keyword: ");
-      String sn = sc.nextLine();
+      String serialNo = sc.nextLine();
       if (res.isEmpty())
-        res = inv.searchByProperties (sn);
+        res = inv.searchByProperties (serialNo);
       else
-        res = inv.searchByProperties (res, sn);
+        res = inv.searchByProperties (res, serialNo);
       if (res.size() == 0) {
         System.out.print ("No results found.");
         return;

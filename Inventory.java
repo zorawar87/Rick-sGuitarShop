@@ -1,77 +1,61 @@
+package com.guitarshop;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.NoSuchElementException;
 
 /**
  * @author Zorawar Moolenaar
  * @version 0.5
  */
 public class Inventory {
-  HashMap<Integer, Guitar> collection, sales; //available collection, sales map
-  ArrayList<Guitar> results; //list containing search results
+  private HashMap<Integer, Guitar> stock, sales; // available collection, sales map
+  private ArrayList<Guitar> results; // contains search results
 
   /**
    * Default Constructor
    */
   public Inventory() {
-    collection = new HashMap<Integer, Guitar>();
+    stock = new HashMap<Integer, Guitar>();
     sales = new HashMap<Integer, Guitar>();
   }
 
   /**
-   * Creates guitar from given parameters and hands off adding to collection to its polymorphic counterpart
-   * @param g guitar object
-   * @return true if successfully added to collection
+   * Creates guitar from given parameters and hands off adding to stock to its polymorphic counterpart
+   *
+   * @param g a <code>Guitar</code>
+   * @return true if successfully added to stock
    */
   public boolean addToCollection (Guitar g) {
-    g.COUNTER++;
-    g.setSno (g.COUNTER);
-    return g == collection.put (g.getSno(), g);
+    g.assignSno ();
+    return g == stock.put (g.getSno(), g);
   }
 
   /**
-   * Creates guitar from given parameters and hands off adding to collection to its polymorphic counterpart
-   * @param b brand of the guitar
-   * @param m model of the guitar
-   * @param p price of the guitar
-   * @param t type of the guitar
-   * @param tw top-wood type of the guitar
-   * @param bw back-wood type of the guitar
-   * @return true if successfully added to collection
+   * Removes from stock and marks it as sold (adds to sales)
+   *
+   * @param serialNo serial number of guitar to delete
+   * @return <code>true</code> if successfully removed from stock and added to sales map; <code>false</code> otherwise
    */
-  public boolean addToCollection (GuitarBrand b, String m, float p, GuitarType t, GuitarWood tw, GuitarWood bw) {
-    Guitar g = new Guitar (b, m, p, t, tw, bw);
-    return addToCollection (g);
+  public boolean sell (int serialNo) {
+    if (!stock.containsKey (serialNo)) throw new
+      IllegalArgumentException ("Invalid Serial Number.");
+    Guitar g = stock.get (serialNo);
+    return stock.remove (serialNo, g) && g == sales.put (serialNo, g);
   }
 
   /**
-   * Sells an item
+   * Replaces guitar if the serial no exists, else adds to stock
    * <p>
-   * Removes from collection and adds to sales
-   * @param sn serial number of guitar to delete
-   * @return true if successfully removed from collection, and added to sales map
-   */
-  public boolean sell (int sn) {
-    if (collection.containsKey (sn)) {
-      Guitar g = collection.get (sn);
-      return collection.remove (sn, g) && g == sales.put (sn, g);
-    } else {
-      System.out.printf ("Invalid Serial Number.\n");
-      return false;
-    }
-  }
-
-  /**
-   * Replaces guitar if the serial no exists, else adds to collection
-   * <p>
-   * In case serial no is not found, adding to collection is handed off to the addToCollection method
+   * In case serial no is not found, adding to stock is delegated to the addToCollection method
    *
    * @param g guitar to replace/add
    * @return true if successfully added/replaced
    */
   public boolean replaceGuitar (Guitar g) {
-    if (collection.containsKey (g.getSno()))
-      return g == collection.put (g.getSno(), g);
+    if (stock.containsKey (g.getSno()))
+      return g == stock.put (g.getSno(), g);
     return addToCollection (g);
   }
 
@@ -79,18 +63,19 @@ public class Inventory {
    * Searches for a guitar based on a single keyword
    * <p>
    * Keyword can be any attribute of the guitar except the price.
-   * @param c Collection to search from
-   * @param s Property to search by
+   * @param coll Collection to search from
+   * @param property Property to search by
    * @return ArrayList containing [1,N] guitars, or null
    */
-  public ArrayList<Guitar> searchByProperties (Collection<Guitar> c, String s) {
-    results = new ArrayList<Guitar> (Guitar.COUNTER);
-    if (c.isEmpty()) {System.out.println ("Nothing to search."); return null;}
-    for (Guitar g : c)
-      if (g.contains (s))
+  public ArrayList<Guitar> searchByProperties (Collection<Guitar> coll,
+      String property) {
+    if (coll.isEmpty()) throw new IllegalArgumentException ("Nothing to search.");
+    results = new ArrayList<Guitar> (stock.size());
+    for (Guitar g : coll)
+      if (g.contains (property))
         results.add (g);
-    if (results.isEmpty())
-      return null;
+    if (results.isEmpty()) throw new
+      NoSuchElementException ("There are no elements with the requested search keyword.");
     return results;
   }
 
@@ -100,16 +85,49 @@ public class Inventory {
    * @return Guitar complete object if found, or null
    */
   public ArrayList<Guitar> searchByProperties (String s) {
-    return searchByProperties (collection.values(), s);
+    return searchByProperties (stock.values(), s);
   }
 
-  public Collection<Guitar> getCollectionContents(){return collection.values();}
-  public Collection<Guitar> getSalesContents(){return collection.values();}
+  /* 
+   *
+   * Helper Methods
+   *
+   */
+  /**
+   * Returns a Collection of guitars in stock
+   * @return Collection of Guitars in stock
+   */
+  public Collection<Guitar> getStockContents() {return stock.values();}
+
+  /**
+   * Checks whether there are any guitars in stock
+   * @return true if stock has guitars
+   */
+  public boolean stockNotEmpty() {return !stock.isEmpty();}
+
+  /**
+   * Returns a Guitar with given serial number from stock
+   * @return Guitar if found
+   * @throws NoSuchElementException if guitar is not in stock
+   */
+  public Guitar getFromStock (int serialNo) {
+    Guitar g = stock.get (serialNo);
+    if (g == null) throw new NoSuchElementException (
+        String.format ("Guitar #%d is not in stock.\n", serialNo));
+    return g;
+  }
+
+  /**
+   * Returns a Collection of guitars sold
+   * @return Collection of Guitars sold
+   */
+  public Collection<Guitar> getSalesContents() {return sales.values();}
+
   /*
    * Table Generation Helpers
    */
   /**
-   * Polymorphic padding function that doesnt print a footer
+   * Polymorphic padding function that doeserialNot print a footer
    */
   public void printPadding() {
     printPadding (false);
@@ -120,8 +138,10 @@ public class Inventory {
    * @param foot decides whether a header or footer needs to be printed
    */
   public void printPadding (boolean foot) {
-    String border = "\t+=======+=====================+====================+===========+====================+============+============+";
-    String titles = "\t| S.No. |        Brand        |       Model        |   Price   |        Type        |  Top-Wood  | Back-Wood  |";
+    String border =
+      "\t+=======+=====================+====================+===========+====================+============+============+";
+    String titles =
+      "\t| S.No. |        Brand        |       Model        |   Price   |      SoundType     |  Top-Wood  | Back-Wood  |";
     if (!foot)
       System.out.printf ("%s\n%s\n%s\n", border, titles, border);
     else
@@ -129,10 +149,10 @@ public class Inventory {
   }
 
   /**
-   * Prints all guitars available in the collection
+   * Prints all guitars available in the stock
    */
   public void showAll() {
-    showFrom (collection.values());
+    showFrom (stock.values());
   }
 
   /**

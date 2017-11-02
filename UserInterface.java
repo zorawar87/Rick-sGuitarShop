@@ -1,7 +1,9 @@
+package com.guitarshop;
+
 import java.util.Scanner;
-import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.NoSuchElementException;
 
 /**
  * @author Zorawar Moolenaar
@@ -39,8 +41,8 @@ public class UserInterface {
         case 2: remove (); break;
         case 3: modify (); break;
         case 4: search(); break;
-        case 5: display (inv.collection.values()); break;
-        case 6: display (inv.sales.values()); break;
+        case 5: display (inv.getStockContents()); break;
+        case 6: display (inv.getSalesContents()); break;
         case 7: break;
         default:
           System.out.println (">>> Invalid Option. Try Again <<<");
@@ -61,17 +63,22 @@ public class UserInterface {
       Guitar g = new Guitar();
       System.out.println ("\tPlease replace any spaces in words with '_' (underscore) characters.");
       try {
-        System.out.print ("\t\tBrand: "); g.setBrand (GuitarBrand.valueOf (sc.nextLine().toUpperCase()));
+        System.out.print ("\t\tBrand: ");
+        g.setBrand (sc.nextLine());
         System.out.print ("\t\tModel: "); g.setModel (sc.nextLine());
         System.out.print ("\t\tPrice: "); g.setPrice (sc.nextFloat());
         sc = new Scanner (System.in);
-        System.out.print ("\t\tAcoustic/Electric?: "); g.setType (GuitarType.valueOf (sc.nextLine().toUpperCase()));
+        System.out.print ("\t\tAcoustic/Electric?: ");
+        g.setSoundType (sc.nextLine());
         sc = new Scanner (System.in);
-        System.out.print ("\t\tType of top wood: "); g.setTopWood (GuitarWood.valueOf (sc.nextLine().toUpperCase()));
+        System.out.print ("\t\tSoundType of top wood: ");
+        g.setTopWood (sc.nextLine());
         sc = new Scanner (System.in);
-        System.out.print ("\t\tType of back wood: "); g.setBackWood (GuitarWood.valueOf (sc.nextLine().toUpperCase()));
+        System.out.print ("\t\tSoundType of back wood: ");
+        g.setBackWood (sc.nextLine());
         inv.addToCollection (g);
-        System.out.print ("\tAdd was successful! Would you like to add more? (1/0) "); ch = sc.nextInt();
+        System.out.print ("\tAdd was successful! Would you like to add more? (1/0) ");
+        ch = sc.nextInt();
       } catch (Exception e) {
         System.out.println ("\tAborting. Error.");
       }
@@ -88,23 +95,32 @@ public class UserInterface {
       Scanner sc = new Scanner (System.in);
       ch = 0;
       System.out.print ("Enter the serial number of the guitar: ");
-      Integer sn = sc.nextInt();
-      if (!inv.sell (sn)) return;
-      if (!inv.collection.isEmpty())
-        System.out.print ("\tRemove was successful! Would you like to delete more? (1/0) "); ch = sc.nextInt();
+      Integer serialNo = sc.nextInt();
+      if (!inv.sell (serialNo)) {
+        System.out.printf ("\tItem %d is not in stock\n", serialNo) ;
+        remove();
+      }
+      if (inv.stockNotEmpty())
+        System.out.print ("\tRemove was successful! Would you like to delete more? (1/0) ");
+      ch = sc.nextInt();
     } while (ch == 1);
   }
 
   public static void modify() {
     Scanner sc = new Scanner (System.in);
-    int sn;
-    System.out.print ("Serial number of the guitar to modify: ");
-    sn = sc.nextInt();
-    Guitar g = inv.collection.get (sn);
-    if (g==null){
-      System.out.println("invalid serial number.");
-      return;
-    }
+    int serialNo;
+    Guitar g = null;
+    do {
+      System.out.print ("Serial number of the guitar to modify: ");
+      serialNo = sc.nextInt();
+      try {
+        g = inv.getFromStock (serialNo);
+      } catch (NoSuchElementException e) {
+        System.out.println (
+          String.format ("Guitar with serial number %d is not in stock. Try again.\n",
+                         serialNo));
+      }
+    } while (g != null);
     ArrayList<Guitar> coll = new ArrayList<Guitar>();
     coll.add (g);
     display (coll);
@@ -114,7 +130,7 @@ public class UserInterface {
       System.out.print ("\t\tBrand: ");
       String temp = sc.nextLine();
       if (!temp.equals (""))
-        g.setBrand (GuitarBrand.valueOf (temp.toUpperCase()));
+        g.setBrand (temp);
       System.out.print ("\t\tModel: ");
       temp = sc.nextLine();
       if (!temp.equals (""))
@@ -127,17 +143,17 @@ public class UserInterface {
       System.out.print ("\t\tAcoustic/Electric?: ");
       temp = sc.nextLine();
       if (!temp.equals (""))
-        g.setType (GuitarType.valueOf (temp.toUpperCase()));
+        g.setSoundType (temp);
       sc = new Scanner (System.in);
-      System.out.print ("\t\tType of top wood: ");
+      System.out.print ("\t\tSoundType of top wood: ");
       temp = sc.nextLine();
       if (!temp.equals (""))
-        g.setTopWood (GuitarWood.valueOf (temp.toUpperCase()));
+        g.setTopWood (temp);
       sc = new Scanner (System.in);
-      System.out.print ("\t\tType of back wood: ");
+      System.out.print ("\t\tSoundType of back wood: ");
       temp = sc.nextLine();
       if (!temp.equals (""))
-        g.setBackWood (GuitarWood.valueOf (temp.toUpperCase()));
+        g.setBackWood (temp);
       coll.clear();
       coll.add (g);
       display (coll);
@@ -154,11 +170,11 @@ public class UserInterface {
       Scanner sc = new Scanner (System.in);
       ch = 0;
       System.out.print ("Please mention a search keyword: ");
-      String sn = sc.nextLine();
+      String serialNo = sc.nextLine();
       if (res.isEmpty())
-        res = inv.searchByProperties (sn);
+        res = inv.searchByProperties (serialNo);
       else
-        res = inv.searchByProperties (res, sn);
+        res = inv.searchByProperties (res, serialNo);
       if (res != null) {
         display (res);
         if (res.size() > 1) {
@@ -200,7 +216,8 @@ public class UserInterface {
    */
   public static void waitForInteraction() {
     Scanner s = new Scanner (System.in);
-    System.out.println ("\t>>> Hit <Enter> to complete operation and clear screen. <<<"); s.nextLine();
+    System.out.println ("\t>>> Hit <Enter> to complete operation and clear screen. <<<");
+    s.nextLine();
   }
 
 }
