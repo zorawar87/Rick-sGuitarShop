@@ -3,6 +3,7 @@ package com.guitarshop;
 /**
  * Represents Guitar Brand
  */
+@SuppressWarnings("SpellCheckingInspection")
 enum Brand {
   GIBSON ("Gibson"), FENDER ("Fender"), IBANEZ ("Ibanez"), PAULREEDSMITH ("Paul Reed Smith"), EPIPHONE ("Epiphone"), JACKSON ("Jackson"), TAYLOR ("Taylor"), MARTIN ("Martin"), YAMAHA ("Yamaha"), RICKENBACKER ("Rickenbacker");
   private final String name;

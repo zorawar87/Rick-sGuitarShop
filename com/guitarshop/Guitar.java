@@ -16,7 +16,7 @@ public class Guitar {
    * Creates a GuitarBuilder in accordance with the Builder Design Pattern
    * @return GuitarBuilder
    */
-  public static GuitarBuilder builder() {
+  static GuitarBuilder builder() {
     return new GuitarBuilder();
   }
 
@@ -25,85 +25,53 @@ public class Guitar {
    * @return serial number of object
    */
   public int getSno() { return meta.getSno(); }
-  /**
-   * Get the guitar brand
-   * @return brand of object
-   */
-  public Brand getBrand() { return brand; }
-  /**
-   * Returns the model of this guitar.
-   * @return model of this guitar
-   */
-  public String getModel() { return model; }
-  /**
-   * Returns the price of this guitar.
-   * @return price of this guitar
-   */
-  public Float getPrice() { return price; }
-  /**
-   * Returns the SoundType of this guitar.
-   * @return SoundType of this guitar
-   */
-  public SoundType getSoundType() { return type; }
-  /**
-   * Returns the top Wood of this guitar.
-   * @return top Wood of this guitar
-   */
-  public Wood getTopWood () { return topWood; }
-  /**
-   * Returns the back Wood of this guitar.
-   * @return back Wood of this guitar
-   */
-  public Wood getBackWood () { return backWood; }
 
   /**
    * Set the metadata for this guitar.
-   * @param value to 
-   * @return this <code>Guitar<code>
+   * @param value to
    */
-  public Guitar setMetadata ( Metadata value ) { meta = value; return this; }
+  public void setMetadata (Metadata value ) { meta = value; }
   /**
    * Set the brand of this guitar.
    * @param value to set as brand
-   * @return this <code>Guitar</code>
    */
-  public Guitar setBrand ( String value ) { brand = Brand.validate (value); return this; }
+  public void setBrand (String value ) { brand = Brand.validate (value);
+  }
   /**
    * Set the model of this guitar.
    * @param value to set as model
-   * @return this <code>Guitar</code>
    */
-  public Guitar setModel ( String value ) { model = value; return this; }
+  public void setModel (String value ) { model = value;
+  }
   /**
    * Set the price of this guitar.
    * @param value to set as price
-   * @return this <code>Guitar</code>
    */
-  public Guitar setPrice ( Float value ) { price = value; return this; }
+  public void setPrice (Float value ) { price = value;
+  }
   /**
    * Set the type of this guitar.
    * @param value to set as type
-   * @return this <code>Guitar</code>
    */
-  public Guitar setSoundType ( String value ) { type = SoundType.validate (value); return this; }
+  public void setSoundType (String value ) { type = SoundType.validate (value);
+  }
   /**
    * Set the top wood type of this guitar.
    * @param value to set as topWood
-   * @return this <code>Guitar</code>
    */
-  public Guitar setTopWood ( String value ) { topWood = Wood.validate (value); return this; }
+  public void setTopWood (String value ) { topWood = Wood.validate (value);
+  }
   /**
    * Set the back wood type of this guitar.
    * @param value to set as backWood
-   * @return this <code>Guitar</code>
    */
-  public Guitar setBackWood ( String value ) { backWood = Wood.validate (value); return this; }
+  public void setBackWood (String value ) { backWood = Wood.validate (value);
+  }
 
   /**
    * Automatically assign a serial number to this guitar.
-   * @return this <code>Guitar</code>
    */
-  public Guitar assignSno() { meta.assignSno(); return this; }
+  public void assignSno() { meta.assignSno();  meta.getSno(); }
 
   /**
    * Returns <code>true</code> if this guitar. contains property.

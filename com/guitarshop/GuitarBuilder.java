@@ -1,7 +1,7 @@
 package com.guitarshop;
 
 /**
- * Builder class that simplies Guitar creation
+ * Builder class that simplifies Guitar creation
  */
 public class GuitarBuilder {
   private final Guitar guitar;

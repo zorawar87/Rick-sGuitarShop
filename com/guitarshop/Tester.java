@@ -1,7 +1,6 @@
 package com.guitarshop;
 
 import java.util.Scanner;
-import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -9,7 +8,7 @@ import java.util.Collection;
  * @author Zorawar Moolenaar
  * @version 0.5
  */
-public class Tester {
+class Tester {
   private static final Inventory inv = new Inventory();
 
   /**
@@ -17,11 +16,9 @@ public class Tester {
    */
   public static void main (String args[]) {
     insert();
-    /*
     remove();
     modify();
     search();
-    */
     display (inv.getStockContents());
     display (inv.getSalesContents());
   }
@@ -30,12 +27,10 @@ public class Tester {
   /**
    * Allows user to insert a guitar through the command line
    */
-  public static void insert() {
-    Guitar g = new Guitar();
-    g = g.builder()
+  private static void insert() {
+    Guitar g;
+    g = Guitar.builder()
         .withBrand ("Gibson").withModel ("something").withPrice (123).withSoundType ("Acoustic").withWood ("Cedar", "Cedar").build();
-    g = g.builder()
-            .withBrand ("Fender").withModel ("something").withPrice (123).withSoundType ("Acoustic").withWood ("Cedar", "Cedar").build();
     inv.addToCollection (g);
     /*
     Guitar g = new Guitar (Brand.GIBSON, "something", 123, SoundType.ACOUSTIC,
@@ -43,13 +38,13 @@ public class Tester {
     g = new Guitar (Brand.FENDER, "else", 622, SoundType.ELECTRIC, Wood.ALDER,
                     Wood.ALDER);
     inv.addToCollection (g);
-    g = new Guitar (Brand.IBANEZ, "adjshds", 322, SoundType.ACOUSTIC, Wood.ROSEWOOD,
+    g = new Guitar (Brand.IBANEZ, "model", 322, SoundType.ACOUSTIC, Wood.ROSEWOOD,
                     Wood.ALDER);
     inv.addToCollection (g);
-    g = new Guitar (Brand.PAUL_REED_SMITH, "skladj", 521, SoundType.ELECTRIC,
+    g = new Guitar (Brand.PAUL_REED_SMITH, "random", 521, SoundType.ELECTRIC,
                     Wood.ALDER, Wood.MAHOGANY);
     inv.addToCollection (g);
-    g = new Guitar (Brand.MARTIN, "cxiicv", 599, SoundType.ACOUSTIC, Wood.CEDAR,
+    g = new Guitar (Brand.MARTIN, "clan", 599, SoundType.ACOUSTIC, Wood.CEDAR,
                     Wood.ROSEWOOD);
     inv.addToCollection (g);
     */
@@ -61,18 +56,19 @@ public class Tester {
    * <p>
    * remove implies sell because we assume data entry has been done correctly
    */
-  public static void remove() {
+  private static void remove() {
     System.out.print ("Removing Serial number 2.");
     int serialNo = 2;
+    inv.sell(serialNo);
   }
 
-  public static void modify() {
+  private static void modify() {
     System.out.print ("Modifying Serial number 3.");
   }
 
-  public static void search() {
+  private static void search() {
     System.out.println ("You can search by S.No, type, brand, model, (back/top)wood.");
-    ArrayList<Guitar> res = new ArrayList<Guitar>();
+    ArrayList<Guitar> res = new ArrayList<>();
     int ch; // stores whether the client wants to repeat task
     do {
       Scanner sc = new Scanner (System.in);
@@ -96,17 +92,10 @@ public class Tester {
   }
 
   /**
-   * Allows user to display all guitars
-   */
-  public static void display () {
-    inv.showAll();
-  }
-
-  /**
    * Allows user to display guitars from given collection
    * @param c collection to display from
    */
-  public static void display (Collection<Guitar> c) {
+  private static void display(Collection<Guitar> c) {
     inv.showFrom (c);
   }
 }

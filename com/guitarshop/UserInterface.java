@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  * @author Zorawar Moolenaar
  * @version 0.5
  */
-public class UserInterface {
+class UserInterface {
   private static final Inventory inv = new Inventory();
 
   /**
@@ -15,7 +15,7 @@ public class UserInterface {
    */
   public static void main (String args[]) {
     Scanner sc;
-    int ch = 0; // stores user's choice of task to execute
+    int ch; // stores user's choice of task to execute
     do {
       clear();
       sc = new Scanner (System.in);
@@ -30,11 +30,7 @@ public class UserInterface {
       System.out.println ("\t|              7. Quit                |");
       System.out.println ("\t+-------------------------------------+");
       System.out.print   ("\t   Enter a number to do task: ");
-      try {
-        ch = sc.nextInt();
-      } catch (Exception e) {
-      }
-      switch (ch) {
+      switch (ch = sc.nextInt()) {
         case 1: insert (); break;
         case 2: remove (); break;
         case 3: modify (); break;
@@ -54,7 +50,7 @@ public class UserInterface {
    * Allows user to insert a guitar through the command line
    */
   private static void insert() {
-    int ch = 0; // stores whether the client wants to repeat task
+    int ch; // stores whether the client wants to repeat task
     do {
       Scanner sc = new Scanner (System.in);
       ch = 0;
@@ -88,10 +84,9 @@ public class UserInterface {
    * Allows user to remove guitars from command line
    */
   private static void remove() {
-    int ch = 0; // stores whether the client wants to repeat task
+    int ch; // stores whether the client wants to repeat task
     do {
       Scanner sc = new Scanner (System.in);
-      ch = 0;
       System.out.print ("Enter the serial number of the guitar: ");
       Integer serialNo = sc.nextInt();
       if (!inv.sell (serialNo)) {
@@ -119,19 +114,19 @@ public class UserInterface {
                          serialNo));
       }
     } while (g != null);
-    ArrayList<Guitar> coll = new ArrayList<Guitar>();
+    ArrayList<Guitar> coll = new ArrayList<>();
     coll.add (g);
     display (coll);
-    System.out.print ("Modify appropraite values. Leave blank otherwise:\n");
+    System.out.print ("Modify appropriate values. Leave blank otherwise:\n");
     try {
       sc = new Scanner (System.in);
       System.out.print ("\t\tBrand: ");
       String temp = sc.nextLine();
-      if (!temp.equals (""))
+      if (!temp.isEmpty ())
         g.setBrand (temp);
       System.out.print ("\t\tModel: ");
       temp = sc.nextLine();
-      if (!temp.equals (""))
+      if (!temp.isEmpty ())
         g.setModel (sc.nextLine());
       System.out.print ("\t\tPlease reenter Price: ");
       float t = sc.nextFloat();
@@ -140,17 +135,17 @@ public class UserInterface {
       sc = new Scanner (System.in);
       System.out.print ("\t\tAcoustic/Electric?: ");
       temp = sc.nextLine();
-      if (!temp.equals (""))
+      if (!temp.isEmpty ())
         g.setSoundType (temp);
       sc = new Scanner (System.in);
       System.out.print ("\t\tSoundType of top wood: ");
       temp = sc.nextLine();
-      if (!temp.equals (""))
+      if (!temp.isEmpty ())
         g.setTopWood (temp);
       sc = new Scanner (System.in);
       System.out.print ("\t\tSoundType of back wood: ");
       temp = sc.nextLine();
-      if (!temp.equals (""))
+      if (!temp.isEmpty ())
         g.setBackWood (temp);
       coll.clear();
       coll.add (g);
@@ -163,7 +158,7 @@ public class UserInterface {
   private static void search() {
     System.out.println ("You can search by S.No, type, brand, model, (back/top)wood.");
     ArrayList<Guitar> res = new ArrayList<Guitar>();
-    int ch = 0; // stores whether the client wants to repeat task
+    int ch; // stores whether the client wants to repeat task
     do {
       Scanner sc = new Scanner (System.in);
       ch = 0;
@@ -184,13 +179,6 @@ public class UserInterface {
   }
 
   /* Helper Methods */
-  /**
-   * Allows user to display all guitars
-   */
-  public static void display () {
-    inv.showAll();
-  }
-
   /**
    * Allows user to display guitars from given collection
    * @param c collection to display from

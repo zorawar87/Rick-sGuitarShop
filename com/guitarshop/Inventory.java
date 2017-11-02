@@ -10,26 +10,24 @@ import java.util.NoSuchElementException;
  * @version 0.5
  */
 class Inventory {
-  private final HashMap<Integer, Guitar> stock;
-  private final HashMap<Integer, Guitar> sales; // available collection, sales map
+  private final HashMap<Integer, Guitar> stock, sales; // available collection, sales map
 
   /**
    * Default Constructor
    */
   public Inventory() {
-    stock = new HashMap<Integer, Guitar>();
-    sales = new HashMap<Integer, Guitar>();
+    stock = new HashMap<>();
+    sales = new HashMap<>();
   }
 
   /**
    * Creates guitar from given parameters and hands off adding to stock to its polymorphic counterpart
    *
    * @param g a <code>Guitar</code>
-   * @return true if successfully added to stock
    */
-  private boolean addToCollection(Guitar g) {
+  public void addToCollection(Guitar g) {
     g.assignSno ();
-    return g == stock.put (g.getSno(), g);
+    stock.put(g.getSno(), g);
   }
 
   /**
@@ -46,20 +44,6 @@ class Inventory {
   }
 
   /**
-   * Replaces guitar if the serial no exists, else adds to stock
-   * <p>
-   * In case serial no is not found, adding to stock is delegated to the addToCollection method
-   *
-   * @param g guitar to replace/add
-   * @return true if successfully added/replaced
-   */
-  public boolean replaceGuitar (Guitar g) {
-    if (stock.containsKey (g.getSno()))
-      return g == stock.put (g.getSno(), g);
-    return addToCollection (g);
-  }
-
-  /**
    * Searches for a guitar based on a single keyword
    * <p>
    * Keyword can be any attribute of the guitar except the price.
@@ -70,7 +54,7 @@ class Inventory {
   private ArrayList<Guitar> searchByProperties(Collection<Guitar> coll,
                                                String property) {
     if (coll.isEmpty()) throw new IllegalArgumentException ("Nothing to search.");
-    ArrayList<Guitar> results = new ArrayList<Guitar>(stock.size());
+    ArrayList<Guitar> results = new ArrayList<>(stock.size());
     for (Guitar g : coll)
       if (g.contains (property))
         results.add (g);
@@ -127,7 +111,7 @@ class Inventory {
    * Table Generation Helpers
    */
   /**
-   * Polymorphic padding function that doeserialNot print a footer
+   * Polymorphic padding function that does not print a footer
    */
   private void printPadding() {
     printPadding (false);
@@ -149,17 +133,10 @@ class Inventory {
   }
 
   /**
-   * Prints all guitars available in the stock
-   */
-  public void showAll() {
-    showFrom (stock.values());
-  }
-
-  /**
    * Prints all guitars available in a given collection
    * @param c collection to display from
    */
-  private void showFrom(Collection<Guitar> c) {
+  public void showFrom(Collection<Guitar> c) {
     printPadding();
     for (Guitar g : c)
       System.out.printf ("%s", g);
