@@ -1,8 +1,8 @@
 package com.guitarshop;
 /**
+ * Describes guitar specifications
  * @author Zorawar Moolenaar
- * @version 0.5
- * describes guitar specifications
+ * @version 1.0
  */
 public class Guitar {
   private Metadata meta;
@@ -21,70 +21,75 @@ public class Guitar {
   }
 
   /**
+   * Creates a new Guitar
+   */
+  public Guitar(){this.meta=new Metadata();}
+
+  /**
    * Get the Serial number
    * @return serial number of object
    */
-  int getSno() { return meta.getSno(); }
+  public int getSno() { return meta.getSno(); }
 
   /**
    * Set the metadata for this guitar.
-   * @param value to
+   * @param value to set as metadata
    */
-  void setMetadata (Metadata value ) { meta = value; }
+  public void setMetadata (Metadata value ) { meta = value; }
   /**
    * Set the brand of this guitar.
    * @param value to set as brand
    */
-  void setBrand (String value ) {
+  public void setBrand (String value ) {
     brand = Brand.validate (value);
   }
   /**
    * Set the model of this guitar.
    * @param value to set as model
    */
-  void setModel (String value ) {
+  public void setModel (String value ) {
     model = value;
   }
   /**
    * Set the price of this guitar.
    * @param value to set as price
    */
-  void setPrice (Float value ) {
+  public void setPrice (Float value ) {
     price = value;
   }
   /**
    * Set the type of this guitar.
    * @param value to set as type
    */
-  void setSoundType (String value ) {
+  public void setSoundType (String value ) {
     type = SoundType.validate (value);
   }
   /**
    * Set the top wood type of this guitar.
    * @param value to set as topWood
    */
-  void setTopWood (String value ) {
+  public void setTopWood (String value ) {
     topWood = Wood.validate (value);
   }
   /**
    * Set the back wood type of this guitar.
    * @param value to set as backWood
    */
-  void setBackWood (String value ) {
+  public void setBackWood (String value ) {
     backWood = Wood.validate (value);
   }
 
   /**
    * Automatically assign a serial number to this guitar.
    */
-  void assignSno() { meta.assignSno();  meta.getSno(); }
+  public void assignSno() { meta.assignSno();  meta.getSno(); }
 
   /**
    * Returns <code>true</code> if this guitar. contains property.
    * @param property String to look for
    * @return <code>true</code> if the object contains the property; <code>false</code> otherwise
    */
-  boolean contains (String property) {
+  public boolean contains (String property) {
     if (meta.contains (property)) return true;
     property = property.toLowerCase();
     return Brand.testEquality (brand, property)

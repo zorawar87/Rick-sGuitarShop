@@ -1,18 +1,18 @@
 package com.guitarshop;
 /**
- * @author Zorawar Moolenaar
- * @version 0.6
  * Reflects how a guitar is viewed in the context of Rick’s inventory
+ * @author Zorawar Moolenaar
+ * @version 1.0
  */
-class Metadata {
+public class Metadata {
   private static int COUNTER = 0;
   private Integer serialNo;
 
-  public Metadata() {
+  Metadata() {
     serialNo = null;
   }
-  public int getSno() {return serialNo;}
-  public void assignSno() { serialNo = ++COUNTER; }
+  int getSno() {return serialNo;}
+  void assignSno() { serialNo = ++COUNTER; }
 
   /**
    * Method that checks whether the object has a given property in its fields

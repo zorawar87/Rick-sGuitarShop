@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
+ * Tests the guitar inventory
  * @author Zorawar Moolenaar
  * @version 0.5
  */
 public class InventoryTest {
-  private static final Inventory inv = new Inventory();
+  private static Inventory inv = new Inventory();
 
   /**
    * Triggers the User Interface
@@ -25,37 +26,35 @@ public class InventoryTest {
 
 
   /**
-   * Allows user to insert a guitar through the command line
+   * Allows user to insert a guitar
    */
   private static void insert() {
     Guitar g;
     g = Guitar.builder()
-        .withBrand ("Gibson").withModel ("something").withPrice (
-          123).withSoundType ("Acoustic").withWood ("Cedar", "Cedar").build();
+        .withBrand ("Gibson").withModel ("something").withPrice (123)
+        .withSoundType ("Acoustic").withWood ("Cedar", "Cedar")
+        .build();
     inv.addToCollection (g);
-    /*
-    Guitar g = new Guitar (Brand.GIBSON, "something", 123, SoundType.ACOUSTIC,
-                           Wood.CEDAR, Wood.CEDAR);
-    g = new Guitar (Brand.FENDER, "else", 622, SoundType.ELECTRIC, Wood.ALDER,
-                    Wood.ALDER);
+    g = Guitar.builder()
+        .withBrand ("Paul Reed Smith").withModel ("fancy").withPrice(222)
+        .withSoundType ("Electric").withWood ("Alder", "Rosewood")
+        .build();
     inv.addToCollection (g);
-    g = new Guitar (Brand.IBANEZ, "model", 322, SoundType.ACOUSTIC, Wood.ROSEWOOD,
-                    Wood.ALDER);
+    g = Guitar.builder()
+            .withBrand ("fender").withModel ("works").withPrice (299.99)
+            .withSoundType ("Acoustic").withWood ("Cedar", "Cedar")
+            .build();
     inv.addToCollection (g);
-    g = new Guitar (Brand.PAUL_REED_SMITH, "random", 521, SoundType.ELECTRIC,
-                    Wood.ALDER, Wood.MAHOGANY);
+    g = Guitar.builder()
+            .withBrand ("fender").withModel ("works").withPrice (299.99)
+            .withSoundType ("Acoustic").withWood ("Cedar", "Cedar")
+            .build();
     inv.addToCollection (g);
-    g = new Guitar (Brand.MARTIN, "clan", 599, SoundType.ACOUSTIC, Wood.CEDAR,
-                    Wood.ROSEWOOD);
-    inv.addToCollection (g);
-    */
   }
 
 
   /**
-   * Allows user to remove -- sell -- guitars from command line
-   * <p>
-   * remove implies sell because we assume data entry has been done correctly
+   * Allows user to remove -- sell -- guitars
    */
   private static void remove() {
     System.out.print ("Removing Serial number 2.");

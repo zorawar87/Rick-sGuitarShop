@@ -3,7 +3,6 @@ package com.guitarshop;
 /**
  * Represents Guitar Brand
  */
-@SuppressWarnings ("SpellCheckingInspection")
 enum Brand {
   GIBSON ("Gibson"), FENDER ("Fender"), IBANEZ ("Ibanez"), PAULREEDSMITH ("Paul Reed Smith"), EPIPHONE ("Epiphone"), JACKSON ("Jackson"), TAYLOR ("Taylor"), MARTIN ("Martin"), YAMAHA ("Yamaha"), RICKENBACKER ("Rickenbacker");
   private final String name;
@@ -17,7 +16,7 @@ enum Brand {
    * @return enum value derived from param
    * @throws IllegalArgumentException if raw string could not get validated
    */
-  private static Brand validate (String value) throws IllegalArgumentException {
+  public static Brand validate (String value) throws IllegalArgumentException {
     for (Brand b : Brand.values()) {
       if (b.name.toLowerCase().equals (value.toLowerCase()))
         return b;
@@ -65,7 +64,7 @@ enum SoundType {
    * @return enum value derived from param
    * @throws IllegalArgumentException if raw string could not get validated
    */
-  private static SoundType validate (String value) throws IllegalArgumentException {
+  public static SoundType validate (String value) throws IllegalArgumentException {
     for (SoundType t : SoundType.values())
       if (t.name.toLowerCase().replaceAll ("\\s",
       "").equals (value.toLowerCase().replaceAll ("\\s", "")))
@@ -112,7 +111,7 @@ enum Wood {
    * @return enum value derived from param
    * @throws IllegalArgumentException if raw string could not get validated
    */
-  private static Wood validate (String value) throws IllegalArgumentException {
+  public static Wood validate (String value) throws IllegalArgumentException {
     for (Wood w : Wood.values())
       if (w.name.toLowerCase().equals (value.toLowerCase()))
         return w;

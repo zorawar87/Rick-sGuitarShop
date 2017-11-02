@@ -1,13 +1,16 @@
 package com.guitarshop;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.NoSuchElementException;
 
 /**
+ * Is the user interface for Rick's Guitar Shop
  * @author Zorawar Moolenaar
  * @version 0.5
  */
-class UserInterface {
+public class UserInterface {
   private static final Inventory inv = new Inventory();
 
   /**
@@ -65,15 +68,16 @@ class UserInterface {
         System.out.print ("\t\tAcoustic/Electric?: ");
         g.setSoundType (sc.nextLine());
         sc = new Scanner (System.in);
-        System.out.print ("\t\tSoundType of top wood: ");
+        System.out.print ("\t\tType of top wood: ");
         g.setTopWood (sc.nextLine());
         sc = new Scanner (System.in);
-        System.out.print ("\t\tSoundType of back wood: ");
+        System.out.print ("\t\tType of back wood: ");
         g.setBackWood (sc.nextLine());
         inv.addToCollection (g);
         System.out.print ("\tAdd was successful! Would you like to add more? (1/0) ");
         ch = sc.nextInt();
       } catch (Exception e) {
+          e.printStackTrace();
         System.out.println ("\tAborting. Error.");
       }
     } while (ch == 1);

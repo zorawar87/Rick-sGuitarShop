@@ -2,6 +2,8 @@ package com.guitarshop;
 
 /**
  * Builder class that simplifies Guitar creation
+ * @author Zorawar Moolenaar
+ * @version 1.0
  */
 public class GuitarBuilder {
   private final Guitar guitar;
@@ -9,7 +11,7 @@ public class GuitarBuilder {
   /**
    * Skeletal Constructor for <code>GuitarBuilder</code>
    */
-  public GuitarBuilder() {
+  GuitarBuilder() {
     guitar = new Guitar();
     guitar.setMetadata (new Metadata());
   }
@@ -18,7 +20,7 @@ public class GuitarBuilder {
    * Adds Brand attribute to the guitar
    * @return this <code>GuitarBuilder</code>
    */
-  public GuitarBuilder withBrand (String brand) {
+  GuitarBuilder withBrand (String brand) {
     if (brand == null)
       throw new IllegalArgumentException ("brand can not be null");
     guitar.setBrand (brand);
@@ -29,7 +31,7 @@ public class GuitarBuilder {
    * Adds Model attribute to the guitar
    * @return this <code>GuitarBuilder</code>
    */
-  public GuitarBuilder withModel (String model) {
+  GuitarBuilder withModel (String model) {
     if (model == null)
       throw new IllegalArgumentException ("model can not be null");
     guitar.setModel (model);
@@ -40,7 +42,7 @@ public class GuitarBuilder {
    * Adds Price attribute to the guitar
    * @return this <code>GuitarBuilder</code>
    */
-  public GuitarBuilder withPrice (Number price) {
+  GuitarBuilder withPrice (Number price) {
     if (price == null)
       throw new IllegalArgumentException ("price can not be null");
     guitar.setPrice (price.floatValue());
@@ -51,7 +53,7 @@ public class GuitarBuilder {
    * Adds SoundType attribute to the guitar
    * @return this <code>GuitarBuilder</code>
    */
-  public GuitarBuilder withSoundType (String type) {
+  GuitarBuilder withSoundType (String type) {
     if (type == null)
       throw new IllegalArgumentException ("sound type can not be null");
     guitar.setSoundType (type);
@@ -62,7 +64,7 @@ public class GuitarBuilder {
    * Adds top and back Wood attribute to the guitar
    * @return this <code>GuitarBuilder</code>
    */
-  public GuitarBuilder withWood (String top, String back) {
+  GuitarBuilder withWood (String top, String back) {
     if (top == null || back == null)
       throw new IllegalArgumentException ("top and back wood can not be null");
     guitar.setTopWood (top);
@@ -74,7 +76,7 @@ public class GuitarBuilder {
    * Returns the constructed guitar
    * @return the <Guitar>
    */
-  public Guitar build() {
+  Guitar build() {
     return guitar;
   }
 

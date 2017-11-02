@@ -6,10 +6,11 @@ import java.util.Collection;
 import java.util.NoSuchElementException;
 
 /**
+ * Represents an inventory containing in-stock and sold guitars
  * @author Zorawar Moolenaar
  * @version 0.5
  */
-class Inventory {
+public class Inventory {
   private final HashMap<Integer, Guitar> stock,
           sales; // available collection, sales map
 
@@ -52,7 +53,7 @@ class Inventory {
    * @param property Property to search by
    * @return ArrayList containing [1,N] guitars, or null
    */
-  private ArrayList<Guitar> searchByProperties (Collection<Guitar> coll,
+  public ArrayList<Guitar> searchByProperties (Collection<Guitar> coll,
       String property) {
     if (coll.isEmpty()) throw new IllegalArgumentException ("Nothing to search.");
     ArrayList<Guitar> results = new ArrayList<> (stock.size());
