@@ -24,61 +24,67 @@ public class Guitar {
    * Get the Serial number
    * @return serial number of object
    */
-  public int getSno() { return meta.getSno(); }
+  int getSno() { return meta.getSno(); }
 
   /**
    * Set the metadata for this guitar.
    * @param value to
    */
-  public void setMetadata (Metadata value ) { meta = value; }
+  void setMetadata (Metadata value ) { meta = value; }
   /**
    * Set the brand of this guitar.
    * @param value to set as brand
    */
-  public void setBrand (String value ) { brand = Brand.validate (value);
+  void setBrand (String value ) {
+    brand = Brand.validate (value);
   }
   /**
    * Set the model of this guitar.
    * @param value to set as model
    */
-  public void setModel (String value ) { model = value;
+  void setModel (String value ) {
+    model = value;
   }
   /**
    * Set the price of this guitar.
    * @param value to set as price
    */
-  public void setPrice (Float value ) { price = value;
+  void setPrice (Float value ) {
+    price = value;
   }
   /**
    * Set the type of this guitar.
    * @param value to set as type
    */
-  public void setSoundType (String value ) { type = SoundType.validate (value);
+  void setSoundType (String value ) {
+    type = SoundType.validate (value);
   }
   /**
    * Set the top wood type of this guitar.
    * @param value to set as topWood
    */
-  public void setTopWood (String value ) { topWood = Wood.validate (value);
+  void setTopWood (String value ) {
+    topWood = Wood.validate (value);
   }
   /**
    * Set the back wood type of this guitar.
    * @param value to set as backWood
    */
-  public void setBackWood (String value ) { backWood = Wood.validate (value);
+  void setBackWood (String value ) {
+    backWood = Wood.validate (value);
   }
 
   /**
    * Automatically assign a serial number to this guitar.
    */
-  public void assignSno() { meta.assignSno();  meta.getSno(); }
+  void assignSno() { meta.assignSno();  meta.getSno(); }
 
   /**
    * Returns <code>true</code> if this guitar. contains property.
    * @param property String to look for
    * @return <code>true</code> if the object contains the property; <code>false</code> otherwise
    */
-  public boolean contains (String property) {
+  boolean contains (String property) {
     if (meta.contains (property)) return true;
     property = property.toLowerCase();
     return Brand.testEquality (brand, property)

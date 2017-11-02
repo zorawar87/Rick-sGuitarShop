@@ -10,7 +10,8 @@ import java.util.NoSuchElementException;
  * @version 0.5
  */
 class Inventory {
-  private final HashMap<Integer, Guitar> stock, sales; // available collection, sales map
+  private final HashMap<Integer, Guitar> stock,
+          sales; // available collection, sales map
 
   /**
    * Default Constructor
@@ -25,9 +26,9 @@ class Inventory {
    *
    * @param g a <code>Guitar</code>
    */
-  public void addToCollection(Guitar g) {
+  public void addToCollection (Guitar g) {
     g.assignSno ();
-    stock.put(g.getSno(), g);
+    stock.put (g.getSno(), g);
   }
 
   /**
@@ -51,10 +52,10 @@ class Inventory {
    * @param property Property to search by
    * @return ArrayList containing [1,N] guitars, or null
    */
-  private ArrayList<Guitar> searchByProperties(Collection<Guitar> coll,
-                                               String property) {
+  private ArrayList<Guitar> searchByProperties (Collection<Guitar> coll,
+      String property) {
     if (coll.isEmpty()) throw new IllegalArgumentException ("Nothing to search.");
-    ArrayList<Guitar> results = new ArrayList<>(stock.size());
+    ArrayList<Guitar> results = new ArrayList<> (stock.size());
     for (Guitar g : coll)
       if (g.contains (property))
         results.add (g);
@@ -72,7 +73,7 @@ class Inventory {
     return searchByProperties (stock.values(), s);
   }
 
-  /* 
+  /*
    *
    * Helper Methods
    *
@@ -121,7 +122,7 @@ class Inventory {
    * Polymorphic padding function that creates a tabular view
    * @param foot decides whether a header or footer needs to be printed
    */
-  private void printPadding(boolean foot) {
+  private void printPadding (boolean foot) {
     String border =
       "\t+=======+=====================+====================+===========+====================+============+============+";
     String titles =
@@ -136,7 +137,7 @@ class Inventory {
    * Prints all guitars available in a given collection
    * @param c collection to display from
    */
-  public void showFrom(Collection<Guitar> c) {
+  public void showFrom (Collection<Guitar> c) {
     printPadding();
     for (Guitar g : c)
       System.out.printf ("%s", g);

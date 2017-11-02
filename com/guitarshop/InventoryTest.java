@@ -8,7 +8,7 @@ import java.util.Collection;
  * @author Zorawar Moolenaar
  * @version 0.5
  */
-class Tester {
+public class InventoryTest {
   private static final Inventory inv = new Inventory();
 
   /**
@@ -30,7 +30,8 @@ class Tester {
   private static void insert() {
     Guitar g;
     g = Guitar.builder()
-        .withBrand ("Gibson").withModel ("something").withPrice (123).withSoundType ("Acoustic").withWood ("Cedar", "Cedar").build();
+        .withBrand ("Gibson").withModel ("something").withPrice (
+          123).withSoundType ("Acoustic").withWood ("Cedar", "Cedar").build();
     inv.addToCollection (g);
     /*
     Guitar g = new Guitar (Brand.GIBSON, "something", 123, SoundType.ACOUSTIC,
@@ -59,7 +60,7 @@ class Tester {
   private static void remove() {
     System.out.print ("Removing Serial number 2.");
     int serialNo = 2;
-    inv.sell(serialNo);
+    inv.sell (serialNo);
   }
 
   private static void modify() {
@@ -95,7 +96,7 @@ class Tester {
    * Allows user to display guitars from given collection
    * @param c collection to display from
    */
-  private static void display(Collection<Guitar> c) {
+  private static void display (Collection<Guitar> c) {
     inv.showFrom (c);
   }
 }

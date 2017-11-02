@@ -11,7 +11,7 @@ public class GuitarBuilder {
    */
   public GuitarBuilder() {
     guitar = new Guitar();
-    guitar.setMetadata(new Metadata());
+    guitar.setMetadata (new Metadata());
   }
 
   /**
@@ -21,7 +21,7 @@ public class GuitarBuilder {
   public GuitarBuilder withBrand (String brand) {
     if (brand == null)
       throw new IllegalArgumentException ("brand can not be null");
-    guitar.setBrand(brand);
+    guitar.setBrand (brand);
     return this;
   }
 
@@ -32,7 +32,7 @@ public class GuitarBuilder {
   public GuitarBuilder withModel (String model) {
     if (model == null)
       throw new IllegalArgumentException ("model can not be null");
-    guitar.setModel(model);
+    guitar.setModel (model);
     return this;
   }
 
@@ -43,7 +43,7 @@ public class GuitarBuilder {
   public GuitarBuilder withPrice (Number price) {
     if (price == null)
       throw new IllegalArgumentException ("price can not be null");
-    guitar.setPrice(price.floatValue());
+    guitar.setPrice (price.floatValue());
     return this;
   }
 
@@ -54,7 +54,7 @@ public class GuitarBuilder {
   public GuitarBuilder withSoundType (String type) {
     if (type == null)
       throw new IllegalArgumentException ("sound type can not be null");
-    guitar.setSoundType(type);
+    guitar.setSoundType (type);
     return this;
   }
 
@@ -65,8 +65,8 @@ public class GuitarBuilder {
   public GuitarBuilder withWood (String top, String back) {
     if (top == null || back == null)
       throw new IllegalArgumentException ("top and back wood can not be null");
-    guitar.setTopWood(top);
-    guitar.setBackWood(back);
+    guitar.setTopWood (top);
+    guitar.setBackWood (back);
     return this;
   }
 

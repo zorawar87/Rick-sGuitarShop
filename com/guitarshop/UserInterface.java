@@ -183,7 +183,7 @@ class UserInterface {
    * Allows user to display guitars from given collection
    * @param c collection to display from
    */
-  private static void display(Collection<Guitar> c) {
+  private static void display (Collection<Guitar> c) {
     inv.showFrom (c);
   }
 
