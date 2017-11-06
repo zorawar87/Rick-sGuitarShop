@@ -40,15 +40,6 @@ public class Guitar {
     }
 
     /**
-     * Set the metadata for this guitar.
-     *
-     * @param value to set as metadata
-     */
-    public void setMetadata(Metadata value) {
-        meta = value;
-    }
-
-    /**
      * Set the brand of this guitar.
      *
      * @param value to set as brand
@@ -111,7 +102,7 @@ public class Guitar {
     }
 
     /**
-     * Returns <code>true</code> if this guitar. contains property.
+     * Returns <code>true</code> if this guitar contains property.
      *
      * @param property String to look for
      * @return <code>true</code> if the object contains the property; <code>false</code> otherwise

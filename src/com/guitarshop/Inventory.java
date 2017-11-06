@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
  * Represents an inventory containing in-stock and sold guitars
  *
  * @author Zorawar Moolenaar
- * @version 0.5
+ * @version 1.0
  */
 public class Inventory {
     private final HashMap<Integer, Guitar> stock, sales; // available collection, sales map

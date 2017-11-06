@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Is the user interface for Rick's Guitar Shop
  *
  * @author Zorawar Moolenaar
- * @version 0.5
+ * @version 0.7
  */
 public class Main {
     private static final Inventory inv = new Inventory();

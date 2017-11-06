@@ -8,7 +8,8 @@ import java.util.NoSuchElementException;
  * Tests the guitar inventory
  *
  * @author Zorawar Moolenaar
- * @version 0.5
+ * @version 1.0
+ * @see Inventory
  */
 public class InventoryTest {
     private static Inventory inv = new Inventory();

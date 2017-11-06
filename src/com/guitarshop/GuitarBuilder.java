@@ -6,7 +6,7 @@ package com.guitarshop;
  * @author Zorawar Moolenaar
  * @version 1.0
  */
-public class GuitarBuilder {
+class GuitarBuilder {
     private final Guitar guitar;
 
     /**
@@ -14,7 +14,6 @@ public class GuitarBuilder {
      */
     GuitarBuilder() {
         guitar = new Guitar();
-        guitar.setMetadata(new Metadata());
     }
 
     /**
