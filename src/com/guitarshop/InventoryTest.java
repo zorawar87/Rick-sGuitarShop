@@ -14,13 +14,17 @@ public class InventoryTest {
     private static Inventory inv = new Inventory();
 
     /**
-     * checks CRUD  in the inventory
+     * checks CRUD in the inventory
+     * @param args list of command line args
      */
     public static void main(String args[]) {
+        System.out.println("Testing the inventory for Rick's Guitar Shop");
         addToCollectionTest();
         modify();
         searchTest();
         remove();
+        System.out.println("All Tests passed.");
+        System.exit(0);
     }
 
     private static void addToCollectionTest() {

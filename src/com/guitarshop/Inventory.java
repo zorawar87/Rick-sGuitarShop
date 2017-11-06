@@ -146,6 +146,7 @@ public class Inventory {
     /**
      * Returns a Guitar with given serial number from stock
      *
+     * @param serialNo serial number of guitar to get from stock
      * @return Guitar if found
      * @throws NoSuchElementException if guitar is not in stock
      */

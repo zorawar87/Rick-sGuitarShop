@@ -16,8 +16,11 @@ public class Main {
 
     /**
      * Triggers the User Interface
+     * @param args list of command line Args
      */
     public static void main(String args[]) {
+        System.out.println("UI under construction.");
+        System.exit(1);
         Scanner sc;
         int ch; // stores user's choice of task to execute
         do {
