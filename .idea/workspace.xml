@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7140f6e1-a658-4468-880f-e792202acbe3" name="Default" comment="publicised enums">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/guitarshop/Enums.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/guitarshop/Guitar.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/guitarshop/GuitarBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/guitarshop/Inventory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/guitarshop/InventoryTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/guitarshop/Metadata.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/guitarshop/UserInterface.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="737a32f8-79ea-4dfb-83bd-ca05dd17a58e" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,25 +11,99 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <splitter split-orientation="horizontal" split-proportion="0.43784207">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Brand.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Brand.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2890">
+                  <caret line="173" column="33" lean-forward="false" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="33" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InventoryTest.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/guitarshop/InventoryTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="83" column="37" lean-forward="false" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+                  <folding>
+                    <element signature="docComment;class#InventoryTest#0" expanded="false" />
+                    <element signature="docComment;method#main#0;class#InventoryTest#0" expanded="false" />
+                    <element signature="method#main#0;class#InventoryTest#0" expanded="false" />
+                    <element signature="e#418#461#0" expanded="false" />
+                    <element signature="docComment;method#addToCollectionTest#0;class#InventoryTest#0" expanded="false" />
+                    <element signature="method#searchTest#0;class#InventoryTest#0" expanded="false" />
+                    <element signature="docComment;method#remove#0;class#InventoryTest#0" expanded="false" />
+                    <element signature="method#remove#0;class#InventoryTest#0" expanded="false" />
+                    <element signature="docComment;method#display#0;class#InventoryTest#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Inventory.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Inventory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="340">
+                  <caret line="64" column="4" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+                  <folding>
+                    <element signature="docComment;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#Inventory#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#Inventory#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#addToCollection#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#addToCollection#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#sell#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#sell#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#refinedSearch#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#refinedSearch#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#search#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#search#1;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#getStockContents#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#getStockContents#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#stockNotEmpty#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#stockNotEmpty#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#getFromStock#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#getFromStock#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#getSalesContents#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#getSalesContents#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#printPadding#0;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#printPadding#1;class#Inventory#0" expanded="false" />
+                    <element signature="method#printPadding#1;class#Inventory#0" expanded="false" />
+                    <element signature="docComment;method#showFrom#0;class#Inventory#0" expanded="false" />
+                    <element signature="method#showFrom#0;class#Inventory#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>sho</find>
-      <find>display</find>
-      <find>replace</find>
-    </findStrings>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -48,33 +113,31 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/GuitarType.java" />
-        <option value="$PROJECT_DIR$/GuitarWood.java" />
-        <option value="$PROJECT_DIR$/GuitarBrand.java" />
-        <option value="$PROJECT_DIR$/Metadata.java" />
-        <option value="$PROJECT_DIR$/Guitar.java" />
-        <option value="/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Enum.class" />
-        <option value="$PROJECT_DIR$/Enums.java" />
-        <option value="$PROJECT_DIR$/Inventory.java" />
-        <option value="$PROJECT_DIR$/GuitarBuilder.java" />
-        <option value="$PROJECT_DIR$/Tester.java" />
-        <option value="$PROJECT_DIR$/UserInterface.java" />
-        <option value="$PROJECT_DIR$/com/guitarshop/Tester.java" />
-        <option value="$PROJECT_DIR$/com/guitarshop/Metadata.java" />
-        <option value="$PROJECT_DIR$/com/guitarshop/GuitarBuilder.java" />
-        <option value="$PROJECT_DIR$/com/guitarshop/Inventory.java" />
-        <option value="$PROJECT_DIR$/com/guitarshop/InventoryTest.java" />
-        <option value="$PROJECT_DIR$/com/guitarshop/Enums.java" />
-        <option value="$PROJECT_DIR$/com/guitarshop/UserInterface.java" />
-        <option value="$PROJECT_DIR$/com/guitarshop/Guitar.java" />
+        <option value="$PROJECT_DIR$/src/Guitar.java" />
+        <option value="$PROJECT_DIR$/src/Wood.java" />
+        <option value="$PROJECT_DIR$/src/SoundType.java" />
+        <option value="$PROJECT_DIR$/src/Brand.java" />
+        <option value="$PROJECT_DIR$/src/GuitarBuilder.java" />
+        <option value="$PROJECT_DIR$/src/Metadata.java" />
+        <option value="$PROJECT_DIR$/src/Inventory.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/guitarshop/Brand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/guitarshop/SoundType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/guitarshop/Wood.java" />
+        <option value="$PROJECT_DIR$/src/com/guitarshop/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/guitarshop/Wood.java" />
+        <option value="$PROJECT_DIR$/src/com/guitarshop/Brand.java" />
+        <option value="$PROJECT_DIR$/src/com/guitarshop/SoundType.java" />
+        <option value="$PROJECT_DIR$/src/com/guitarshop/Inventory.java" />
+        <option value="$PROJECT_DIR$/src/com/guitarshop/InventoryTest.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="580" />
-    <option name="y" value="232" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-622" />
+    <option name="y" value="128" />
+    <option name="width" value="2520" />
+    <option name="height" value="1312" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -97,47 +160,32 @@
         <subPane>
           <expand>
             <path>
-              <item name="2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
+              <item name="hwtwo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hwtwo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
+              <item name="hwtwo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hwtwo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
+              <item name="hwtwo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hwtwo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="guitarshop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="create.test.in.the.same.root" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.guitarshop" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -151,15 +199,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UserInterface">
-    <configuration name="UserInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.InventoryTest">
+    <configuration name="InventoryTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.guitarshop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.guitarshop.UserInterface" />
+      <option name="MAIN_CLASS_NAME" value="com.guitarshop.InventoryTest" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -168,7 +216,26 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="2" />
+      <module name="hwtwo" />
+      <envs />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.guitarshop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.guitarshop.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="hwtwo" />
       <envs />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -252,250 +319,276 @@
       <properties />
       <listeners />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.InventoryTest" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.UserInterface" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.InventoryTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7140f6e1-a658-4468-880f-e792202acbe3" name="Default" comment="" />
-      <created>1509405799396</created>
+      <changelist id="737a32f8-79ea-4dfb-83bd-ca05dd17a58e" name="Default" comment="" />
+      <created>1509858617924</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1509405799396</updated>
+      <updated>1509858617924</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="580" y="232" width="1360" height="738" extended-state="7" />
+    <frame x="-6" y="-6" width="1293" height="733" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24291497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24939272" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32666665" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="publicised enums" />
-    <option name="LAST_COMMIT_MESSAGE" value="publicised enums" />
-  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/2.iml">
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Brand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2941">
+          <caret line="173" column="33" lean-forward="false" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/InventoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="46" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+          <folding>
+            <element signature="docComment;class#InventoryTest#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#InventoryTest#0" expanded="false" />
+            <element signature="method#main#0;class#InventoryTest#0" expanded="false" />
+            <element signature="e#418#461#0" expanded="false" />
+            <element signature="docComment;method#addToCollectionTest#0;class#InventoryTest#0" expanded="false" />
+            <element signature="method#searchTest#0;class#InventoryTest#0" expanded="false" />
+            <element signature="docComment;method#remove#0;class#InventoryTest#0" expanded="false" />
+            <element signature="method#remove#0;class#InventoryTest#0" expanded="false" />
+            <element signature="docComment;method#display#0;class#InventoryTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Inventory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#Inventory#0;class#Inventory#0" expanded="false" />
+            <element signature="method#Inventory#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#addToCollection#0;class#Inventory#0" expanded="false" />
+            <element signature="method#addToCollection#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#sell#0;class#Inventory#0" expanded="false" />
+            <element signature="method#sell#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#refinedSearch#0;class#Inventory#0" expanded="false" />
+            <element signature="method#refinedSearch#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#search#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#search#1;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#getStockContents#0;class#Inventory#0" expanded="false" />
+            <element signature="method#getStockContents#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#stockNotEmpty#0;class#Inventory#0" expanded="false" />
+            <element signature="method#stockNotEmpty#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#getFromStock#0;class#Inventory#0" expanded="false" />
+            <element signature="method#getFromStock#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#getSalesContents#0;class#Inventory#0" expanded="false" />
+            <element signature="method#getSalesContents#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#printPadding#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#printPadding#1;class#Inventory#0" expanded="false" />
+            <element signature="method#printPadding#1;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#showFrom#0;class#Inventory#0" expanded="false" />
+            <element signature="method#showFrom#0;class#Inventory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wood.java" />
+    <entry file="file://$PROJECT_DIR$/src/SoundType.java" />
+    <entry file="file://$PROJECT_DIR$/src/Brand.java" />
+    <entry file="file://$PROJECT_DIR$/src/Guitar.java" />
+    <entry file="file://$PROJECT_DIR$/src/GuitarBuilder.java" />
+    <entry file="file://$PROJECT_DIR$/src/Metadata.java" />
+    <entry file="file://$PROJECT_DIR$/src/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/Inventory.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/guitarshop/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/guitarshop/Brand.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/guitarshop/SoundType.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/guitarshop/Wood.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/guitarshop/Guitar.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2890">
+          <caret line="173" column="33" lean-forward="false" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/Tester.java">
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Brand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="22" lean-forward="false" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+        <state relative-caret-position="85">
+          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/GuitarBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/SoundType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="136">
+          <caret line="22" column="89" lean-forward="false" selection-start-line="22" selection-start-column="89" selection-end-line="22" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Metadata.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/Inventory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Wood.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="23" column="85" lean-forward="false" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/InventoryTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/Inventory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="64" column="4" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#Inventory#0;class#Inventory#0" expanded="false" />
+            <element signature="method#Inventory#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#addToCollection#0;class#Inventory#0" expanded="false" />
+            <element signature="method#addToCollection#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#sell#0;class#Inventory#0" expanded="false" />
+            <element signature="method#sell#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#refinedSearch#0;class#Inventory#0" expanded="false" />
+            <element signature="method#refinedSearch#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#search#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#search#1;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#getStockContents#0;class#Inventory#0" expanded="false" />
+            <element signature="method#getStockContents#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#stockNotEmpty#0;class#Inventory#0" expanded="false" />
+            <element signature="method#stockNotEmpty#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#getFromStock#0;class#Inventory#0" expanded="false" />
+            <element signature="method#getFromStock#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#getSalesContents#0;class#Inventory#0" expanded="false" />
+            <element signature="method#getSalesContents#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#printPadding#0;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#printPadding#1;class#Inventory#0" expanded="false" />
+            <element signature="method#printPadding#1;class#Inventory#0" expanded="false" />
+            <element signature="docComment;method#showFrom#0;class#Inventory#0" expanded="false" />
+            <element signature="method#showFrom#0;class#Inventory#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/UserInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/com/guitarshop/InventoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/Guitar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="98" column="2" lean-forward="false" selection-start-line="98" selection-start-column="2" selection-end-line="98" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inventory.java" />
-    <entry file="file://$PROJECT_DIR$/Guitar.java" />
-    <entry file="file://$PROJECT_DIR$/GuitarType.java" />
-    <entry file="file://$PROJECT_DIR$/GuitarWood.java" />
-    <entry file="file://$PROJECT_DIR$/GuitarBrand.java" />
-    <entry file="file://$PROJECT_DIR$/GuitarType.java" />
-    <entry file="file://$PROJECT_DIR$/GuitarWood.java" />
-    <entry file="file://$PROJECT_DIR$/GuitarBrand.java" />
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Enum.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inventory.java" />
-    <entry file="file://$PROJECT_DIR$/Guitar.java" />
-    <entry file="file://$PROJECT_DIR$/GuitarBuilder.java" />
-    <entry file="file://$PROJECT_DIR$/Enums.java" />
-    <entry file="file://$PROJECT_DIR$/Tester.java" />
-    <entry file="file://$PROJECT_DIR$/Metadata.java" />
-    <entry file="file://$PROJECT_DIR$/UserInterface.java" />
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/Tester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/GuitarBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/Metadata.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/Inventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/InventoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/Enums.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/UserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/guitarshop/Guitar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="83" column="37" lean-forward="false" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+          <folding>
+            <element signature="docComment;class#InventoryTest#0" expanded="false" />
+            <element signature="docComment;method#main#0;class#InventoryTest#0" expanded="false" />
+            <element signature="method#main#0;class#InventoryTest#0" expanded="false" />
+            <element signature="e#418#461#0" expanded="false" />
+            <element signature="docComment;method#addToCollectionTest#0;class#InventoryTest#0" expanded="false" />
+            <element signature="method#searchTest#0;class#InventoryTest#0" expanded="false" />
+            <element signature="docComment;method#remove#0;class#InventoryTest#0" expanded="false" />
+            <element signature="method#remove#0;class#InventoryTest#0" expanded="false" />
+            <element signature="docComment;method#display#0;class#InventoryTest#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ProjectJDKs.UI">
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
         <settings>
           <last-edited>1.8</last-edited>
           <splitter-proportions>
@@ -507,7 +600,20 @@
           </splitter-proportions>
         </settings>
       </state>
-      <state key="ScopeChooserConfigurable.UI">
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>hwtwo</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
             <option name="proportions">
