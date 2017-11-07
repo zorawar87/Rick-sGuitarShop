@@ -87,10 +87,6 @@ public class Inventory {
         return refinedSearch(stock.values(), s);
     }
 
-    private boolean replace(int serialNo, Guitar newValue) {
-        return false;
-    }
-
     /**
      * replace a given guitar field, view a specified value
      *
