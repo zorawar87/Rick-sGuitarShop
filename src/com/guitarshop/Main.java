@@ -19,8 +19,10 @@ public class Main {
      * @param args list of command line Args
      */
     public static void main(String args[]) {
+      /*
         System.out.println("UI under construction.");
         System.exit(1);
+        */
         Scanner sc;
         int ch; // stores user's choice of task to execute
         do {
@@ -70,58 +72,51 @@ public class Main {
      * Allows user to insert a guitar through the command line
      */
     private static void insert() {
-      /*
         int ch; // stores whether the client wants to repeat task
         do {
             Scanner sc = new Scanner(System.in);
-            StringInstrument si = new StringInstrument();
-            System.out.println("\tGuitar or Mandolin? (1/2).");
             ch = 0;
-            int instrumentChoice = sc.nextInt();
-            if (instrumentChoice == 1) si = populateGuitar();
-            else if (instrumentChoice == 2) si = populateMandolin();
+            System.out.print("\t\tGuitar or Mandolin? (1/2) ");
+            int instrumentCh=0;
+            instrumentCh = sc.nextInt();
+            if (instrumentCh == 1) inv.addToCollection(populateGuitar());
+            else if (instrumentCh == 2) inv.addToCollection(populateMandolin());
             else {System.out.println("Aborting. Try Again."); continue;}
-            inv.addToCollection(si);
-            System.out.print("\tAdd was successful! Would you like to add more? (1/0) ");
+            System.out.println("\tAdd was successful! Would you like to add more? (1/0) ");
             ch = sc.nextInt();
         } while (ch == 1);
-        */
     }
 
     private static StringInstrument populateStringInstrument(StringInstrument si){
-      return null;
-      /*
-        Scanner sc = new Scanner(System.in);
-        try {
-            System.out.print("\t\tBrand: ");
-            si.setBrand(sc.nextLine());
-            System.out.print("\t\tModel: ");
-            si.setModel(sc.nextLine());
-            System.out.print("\t\tPrice: ");
-            sc.nextFloat();
-            sc = new Scanner(System.in);
-            System.out.print("\t\tAcoustic/Electric?: ");
-            si.setSoundType(sc.nextLine());
-            sc = new Scanner(System.in);
-            System.out.print("\t\tType of top wood: ");
-            si.setTopWood(sc.nextLine());
-            sc = new Scanner(System.in);
-            System.out.print("\t\tType of back wood: ");
-            si.setBackWood(sc.nextLine());
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("\tAborting. Error.");
-        }
-        return si;
-        */
-    }
-
-    private static Guitar populateGuitar(Guitar g){
-      return null;
-      /*
-      g = populateStringInstrument(g);
       Scanner sc = new Scanner(System.in);
       try {
+          System.out.print("\t\tBrand: ");
+          si.setBrand(sc.nextLine());
+          System.out.print("\t\tModel: ");
+          si.setModel(sc.nextLine());
+          System.out.print("\t\tPrice: ");
+          sc.nextFloat();
+          sc = new Scanner(System.in);
+          System.out.print("\t\tAcoustic/Electric?: ");
+          si.setSoundType(sc.nextLine());
+          sc = new Scanner(System.in);
+          System.out.print("\t\tType of top wood: ");
+          si.setTopWood(sc.nextLine());
+          sc = new Scanner(System.in);
+          System.out.print("\t\tType of back wood: ");
+          si.setBackWood(sc.nextLine());
+      } catch (Exception e) {
+          e.printStackTrace();
+          System.out.println("\tAborting. Error.");
+      }
+      return si;
+    }
+
+    private static Guitar populateGuitar(){
+      Guitar g = new Guitar();
+      Scanner sc = new Scanner(System.in);
+      try {
+          g =(Guitar)populateStringInstrument(g);
           System.out.print("\t\tString Count: ");
           g.setStringCount(sc.nextInt());
       } catch (Exception e) {
@@ -129,23 +124,20 @@ public class Main {
           System.out.println("\tAborting. Error.");
       }
       return g;
-      */
     }
 
-    private static Mandolin populateMandolin(Mandolin m){
-      return null;
-      /*
+    private static Mandolin populateMandolin(){
+      Mandolin m = new Mandolin();
       Scanner sc = new Scanner(System.in);
-      m = populateStringInstrument(m);
       try {
+          m = (Mandolin)populateStringInstrument(m);
           System.out.print("\t\tMandolin Style: ");
-          m.setStyle(sc.nextInt());
+          m.setStyle(sc.nextLine());
       } catch (Exception e) {
           e.printStackTrace();
           System.out.println("\tAborting. Error.");
       }
       return m;
-      */
     }
 
 

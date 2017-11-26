@@ -134,7 +134,7 @@ public abstract class StringInstrument {
     @Override
     public String toString() {
         return String.format(
-                "\t|  %03d  | %-19s | %-18s |  %06.2f   |  %-10s        | %-10s | %-10s |\n",
-                meta.getSno(), brand, model, price, type, topWood, backWood);
+                "\t| %-9s  | %03d  | %-19s | %-18s |  %-06.2f   |  %-10s        | %-10s | %-10s |\n",
+                this.getClass().getSimpleName(), meta.getSno(), brand, model, price, type, topWood, backWood);
     }
 }

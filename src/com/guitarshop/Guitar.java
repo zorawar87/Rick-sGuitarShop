@@ -26,15 +26,4 @@ public class Guitar extends StringInstrument{
         return new GuitarBuilder();
     }
 
-    /**
-     * Returns a string representation of this mandolin.
-     *
-     * @return formatted string representation
-     */
-    @Override
-    public String toString() {
-        return String.format(
-                "\t|  %03d  | %-19s | %-18s |  %06.2f   |  %-10s        | %-10s | %-10s | %-2s |\n",
-                meta.getSno(), brand, model, price, type, topWood, backWood, stringCount);
-    }
 }

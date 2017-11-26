@@ -185,9 +185,9 @@ public class Inventory {
      */
     private void printPadding(boolean foot) {
         String border =
-                "\t+=======+=====================+====================+===========+====================+============+============+";
+                "\t+===========+=======+=====================+====================+===========+====================+============+============+";
         String titles =
-                "\t| S.No. |        Brand        |       Model        |   Price   |      SoundType     |  Top-Wood  | Back-Wood  |";
+                "\t|    Type   | S.No. |        Brand        |       Model        |   Price   |      SoundType     |  Top-Wood  | Back-Wood  |";
         if (!foot)
             System.out.printf("%s\n%s\n%s\n", border, titles, border);
         else
