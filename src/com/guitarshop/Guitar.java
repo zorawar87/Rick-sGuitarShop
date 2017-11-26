@@ -4,25 +4,21 @@ package com.guitarshop;
  * Describes guitar specifications
  *
  * @author Zorawar Moolenaar
- * @version 1.0
+ * @version 1.1
  */
-public class Guitar {
-    private Metadata meta;
-    private Brand brand;
-    private String model;
-    private float price;
-    private SoundType type;
-    private Wood topWood, backWood;
-
+public class Guitar extends StringInstrument{
+    private Integer stringCount;
     /**
-     * Creates a new Guitar
+     * Set the number of strings on this string instrument.
+     *
+     * @param value to set as stringCount
      */
-    public Guitar() {
-        this.meta = new Metadata();
+    public void setStringCount(Integer value) {
+        stringCount = value;
     }
 
     /**
-     * Creates a GuitarBuilder in accordance with the Builder Design Pattern
+     * Creates a GuitarBuilder
      *
      * @return GuitarBuilder
      */
@@ -31,100 +27,14 @@ public class Guitar {
     }
 
     /**
-     * Get the Serial number
-     *
-     * @return serial number of object
-     */
-    public int getSno() {
-        return meta.getSno();
-    }
-
-    /**
-     * Set the brand of this guitar.
-     *
-     * @param value to set as brand
-     */
-    public void setBrand(String value) {
-        brand = Brand.validate(value);
-    }
-
-    /**
-     * Set the model of this guitar.
-     *
-     * @param value to set as model
-     */
-    public void setModel(String value) {
-        model = value;
-    }
-
-    /**
-     * Set the price of this guitar.
-     *
-     * @param value to set as price
-     */
-    public void setPrice(Float value) {
-        price = value;
-    }
-
-    /**
-     * Set the type of this guitar.
-     *
-     * @param value to set as type
-     */
-    public void setSoundType(String value) {
-        type = SoundType.validate(value);
-    }
-
-    /**
-     * Set the top wood type of this guitar.
-     *
-     * @param value to set as topWood
-     */
-    public void setTopWood(String value) {
-        topWood = Wood.validate(value);
-    }
-
-    /**
-     * Set the back wood type of this guitar.
-     *
-     * @param value to set as backWood
-     */
-    public void setBackWood(String value) {
-        backWood = Wood.validate(value);
-    }
-
-    /**
-     * Automatically assign a serial number to this guitar.
-     */
-    public void assignSno() {
-        meta.assignSno();
-        meta.getSno();
-    }
-
-    /**
-     * Returns <code>true</code> if this guitar contains property.
-     *
-     * @param property String to look for
-     * @return <code>true</code> if the object contains the property; <code>false</code> otherwise
-     */
-    public boolean contains(String property) {
-        if (meta.contains(property)) return true;
-        property = property.toLowerCase();
-        return Brand.testEquality(brand, property)
-                || property.equals(model.toLowerCase())
-                || SoundType.testEquality(type, property)
-                || Wood.testEquality(topWood, property)
-                || Wood.testEquality(backWood, property);
-    }
-
-    /**
-     * Returns a string representation of this guitar.
+     * Returns a string representation of this mandolin.
      *
      * @return formatted string representation
      */
+    @Override
     public String toString() {
         return String.format(
-                "\t|  %03d  | %-19s | %-18s |  %06.2f   |  %-10s        | %-10s | %-10s |\n",
-                meta.getSno(), brand, model, price, type, topWood, backWood);
+                "\t|  %03d  | %-19s | %-18s |  %06.2f   |  %-10s        | %-10s | %-10s | %-2s |\n",
+                meta.getSno(), brand, model, price, type, topWood, backWood, stringCount);
     }
 }

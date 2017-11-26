@@ -26,16 +26,16 @@ public class Main {
         do {
             clear();
             sc = new Scanner(System.in);
-            System.out.println("\t+-------------------------------------+");
-            System.out.println("\t|         Rick's Guitar Inventory     |");
-            System.out.println("\t|--------------=========--------------|");
-            System.out.println("\t|          Supported Operations       |");
-            System.out.println("\t+-------------------------------------+");
-            System.out.println("\t|     1. Insert      2. Remove        |");
-            System.out.println("\t|     3. Modify      4. Search        |");
-            System.out.println("\t|     5. Display     6. Show Removed  |");
-            System.out.println("\t|              7. Quit                |");
-            System.out.println("\t+-------------------------------------+");
+            System.out.println("\t|--------------------------------------------------------------|");
+            System.out.println("\t|               Rick's Guitar & Mandolin Inventory             |");
+            System.out.println("\t|---------------------===================----------------------|");
+            System.out.println("\t|                    Supported Operations                      |");
+            System.out.println("\t|--------------------------------------------------------------|");
+            System.out.println("\t|     1. Insert Instrument     2. Remove (sell) Instrument     |");
+            System.out.println("\t|     3. Modify Instrument     4. Search Instrument            |");
+            System.out.println("\t|     5. Display Instrument    6. Show Removed (sold)          |");
+            System.out.println("\t|                       7. Quit                                |");
+            System.out.println("\t|--------------------------------------------------------------|");
             System.out.print("\t   Enter a number to do task: ");
             switch (ch = sc.nextInt()) {
                 case 1:
@@ -70,36 +70,82 @@ public class Main {
      * Allows user to insert a guitar through the command line
      */
     private static void insert() {
+      /*
         int ch; // stores whether the client wants to repeat task
         do {
             Scanner sc = new Scanner(System.in);
+            StringInstrument si = new StringInstrument();
+            System.out.println("\tGuitar or Mandolin? (1/2).");
             ch = 0;
-            Guitar g = new Guitar();
-            System.out.println("\tPlease replace any spaces in words with '_' (underscore) characters.");
-            try {
-                System.out.print("\t\tBrand: ");
-                g.setBrand(sc.nextLine());
-                System.out.print("\t\tModel: ");
-                g.setModel(sc.nextLine());
-                System.out.print("\t\tPrice: ");
-                sc.nextFloat();
-                sc = new Scanner(System.in);
-                System.out.print("\t\tAcoustic/Electric?: ");
-                g.setSoundType(sc.nextLine());
-                sc = new Scanner(System.in);
-                System.out.print("\t\tType of top wood: ");
-                g.setTopWood(sc.nextLine());
-                sc = new Scanner(System.in);
-                System.out.print("\t\tType of back wood: ");
-                g.setBackWood(sc.nextLine());
-                inv.addToCollection(g);
-                System.out.print("\tAdd was successful! Would you like to add more? (1/0) ");
-                ch = sc.nextInt();
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("\tAborting. Error.");
-            }
+            int instrumentChoice = sc.nextInt();
+            if (instrumentChoice == 1) si = populateGuitar();
+            else if (instrumentChoice == 2) si = populateMandolin();
+            else {System.out.println("Aborting. Try Again."); continue;}
+            inv.addToCollection(si);
+            System.out.print("\tAdd was successful! Would you like to add more? (1/0) ");
+            ch = sc.nextInt();
         } while (ch == 1);
+        */
+    }
+
+    private static StringInstrument populateStringInstrument(StringInstrument si){
+      return null;
+      /*
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("\t\tBrand: ");
+            si.setBrand(sc.nextLine());
+            System.out.print("\t\tModel: ");
+            si.setModel(sc.nextLine());
+            System.out.print("\t\tPrice: ");
+            sc.nextFloat();
+            sc = new Scanner(System.in);
+            System.out.print("\t\tAcoustic/Electric?: ");
+            si.setSoundType(sc.nextLine());
+            sc = new Scanner(System.in);
+            System.out.print("\t\tType of top wood: ");
+            si.setTopWood(sc.nextLine());
+            sc = new Scanner(System.in);
+            System.out.print("\t\tType of back wood: ");
+            si.setBackWood(sc.nextLine());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("\tAborting. Error.");
+        }
+        return si;
+        */
+    }
+
+    private static Guitar populateGuitar(Guitar g){
+      return null;
+      /*
+      g = populateStringInstrument(g);
+      Scanner sc = new Scanner(System.in);
+      try {
+          System.out.print("\t\tString Count: ");
+          g.setStringCount(sc.nextInt());
+      } catch (Exception e) {
+          e.printStackTrace();
+          System.out.println("\tAborting. Error.");
+      }
+      return g;
+      */
+    }
+
+    private static Mandolin populateMandolin(Mandolin m){
+      return null;
+      /*
+      Scanner sc = new Scanner(System.in);
+      m = populateStringInstrument(m);
+      try {
+          System.out.print("\t\tMandolin Style: ");
+          m.setStyle(sc.nextInt());
+      } catch (Exception e) {
+          e.printStackTrace();
+          System.out.println("\tAborting. Error.");
+      }
+      return m;
+      */
     }
 
 
@@ -125,20 +171,20 @@ public class Main {
     private static void modify() {
         Scanner sc = new Scanner(System.in);
         int serialNo;
-        Guitar g = null;
+        StringInstrument si = null;
         do {
-            System.out.print("Serial number of the guitar to modify: ");
+            System.out.print("Serial number of the string instrument to modify: ");
             serialNo = sc.nextInt();
             try {
-                g = inv.getFromStock(serialNo);
+                si = inv.getFromStock(serialNo);
             } catch (NoSuchElementException e) {
                 System.out.println(
-                        String.format("Guitar with serial number %d is not in stock. Try again.\n",
+                        String.format("String Instrument with serial number %d is not in stock. Try again.\n",
                                 serialNo));
             }
-        } while (g != null);
-        ArrayList<Guitar> coll = new ArrayList<>();
-        coll.add(g);
+        } while (si != null);
+        ArrayList<StringInstrument> coll = new ArrayList<>();
+        coll.add(si);
         display(coll);
         System.out.print("Modify appropriate values. Leave blank otherwise:\n");
         try {
@@ -146,32 +192,32 @@ public class Main {
             System.out.print("\t\tBrand: ");
             String temp = sc.nextLine();
             if (!temp.isEmpty())
-                g.setBrand(temp);
+                si.setBrand(temp);
             System.out.print("\t\tModel: ");
             temp = sc.nextLine();
             if (!temp.isEmpty())
-                g.setModel(sc.nextLine());
+                si.setModel(sc.nextLine());
             System.out.print("\t\tPlease reenter Price: ");
             float t = sc.nextFloat();
             if (t > 0)
-                g.setPrice(t);
+                si.setPrice(t);
             sc = new Scanner(System.in);
             System.out.print("\t\tAcoustic/Electric?: ");
             temp = sc.nextLine();
             if (!temp.isEmpty())
-                g.setSoundType(temp);
+                si.setSoundType(temp);
             sc = new Scanner(System.in);
             System.out.print("\t\tSoundType of top wood: ");
             temp = sc.nextLine();
             if (!temp.isEmpty())
-                g.setTopWood(temp);
+                si.setTopWood(temp);
             sc = new Scanner(System.in);
             System.out.print("\t\tSoundType of back wood: ");
             temp = sc.nextLine();
             if (!temp.isEmpty())
-                g.setBackWood(temp);
+                si.setBackWood(temp);
             coll.clear();
-            coll.add(g);
+            coll.add(si);
             display(coll);
         } catch (Exception e) {
             System.out.println("\tAborting. Error.");
@@ -180,7 +226,7 @@ public class Main {
 
     private static void search() {
         System.out.println("You can search by S.No, type, brand, model, (back/top)wood.");
-        ArrayList<Guitar> res = new ArrayList<Guitar>();
+        ArrayList<StringInstrument> res = new ArrayList<StringInstrument>();
         int ch; // stores whether the client wants to repeat task
         do {
             Scanner sc = new Scanner(System.in);
@@ -208,7 +254,7 @@ public class Main {
      *
      * @param c collection to display from
      */
-    private static void display(Collection<Guitar> c) {
+    private static void display(Collection<StringInstrument> c) {
         inv.showFrom(c);
     }
 
