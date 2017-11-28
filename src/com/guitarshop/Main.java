@@ -41,7 +41,8 @@ public class Main {
             System.out.print("\t   Enter a number to do task: ");
             switch (ch = sc.nextInt()) {
                 case 1:
-                    insert();
+                  jdi();
+                    //insert();
                     break;
                 case 2:
                     remove();
@@ -67,6 +68,15 @@ public class Main {
         } while (ch != 7);
     }
 
+    private static void jdi(){
+      StringInstrument si;
+      si = Guitar.builder().withBrand("Yamaha").withModel("adads").withSoundType("acoustic").withWood("cedar","alder").build();
+      inv.addToCollection(si);
+      si = Mandolin.builder().withBrand("Fender").withModel("cxzv").withSoundType("electric").withWood("rosewood","mahogany").build();
+      inv.addToCollection(si);
+      si = Mandolin.builder().withBrand("Paul Reed Smith").withModel("qwewq").withSoundType("electric").withWood("cedar","mahogany").build();
+      inv.addToCollection(si);
+    }
 
     /**
      * Allows user to insert a guitar through the command line

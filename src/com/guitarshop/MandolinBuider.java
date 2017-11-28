@@ -19,6 +19,7 @@ class MandolinBuilder {
     /**
      * Adds Brand attribute to the mandolin
      *
+     * @param brand of the Mandolin
      * @return this <code>MandolinBuilder</code>
      */
     MandolinBuilder withBrand(String brand) {
@@ -31,6 +32,7 @@ class MandolinBuilder {
     /**
      * Adds Model attribute to the mandolin
      *
+     * @param model of the Mandolin
      * @return this <code>MandolinBuilder</code>
      */
     MandolinBuilder withModel(String model) {
@@ -43,6 +45,7 @@ class MandolinBuilder {
     /**
      * Adds Price attribute to the mandolin
      *
+     * @param price of the Mandolin
      * @return this <code>MandolinBuilder</code>
      */
     MandolinBuilder withPrice(Number price) {
@@ -55,6 +58,7 @@ class MandolinBuilder {
     /**
      * Adds SoundType attribute to the mandolin
      *
+     * @param type of sound (electric/acoustic) of the Mandolin
      * @return this <code>MandolinBuilder</code>
      */
     MandolinBuilder withSoundType(String type) {
@@ -67,6 +71,8 @@ class MandolinBuilder {
     /**
      * Adds top and back Wood attribute to the mandolin
      *
+     * @param top wood type of the Mandolin
+     * @param back wood type of the Mandolin
      * @return this <code>MandolinBuilder</code>
      */
     MandolinBuilder withWood(String top, String back) {
@@ -80,7 +86,7 @@ class MandolinBuilder {
     /**
      * Returns the constructed mandolin
      *
-     * @return the <Mandolin>
+     * @return the <code>Mandolin</code>
      */
     Mandolin build() {
         return mandolin;

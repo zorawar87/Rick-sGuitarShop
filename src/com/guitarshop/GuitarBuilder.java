@@ -4,7 +4,7 @@ package com.guitarshop;
  * Builder class that simplifies Guitar creation
  *
  * @author Zorawar Moolenaar
- * @version 1.0
+ * @version 1.1
  */
 class GuitarBuilder {
     private final Guitar guitar;
@@ -19,6 +19,7 @@ class GuitarBuilder {
     /**
      * Adds Brand attribute to the guitar
      *
+     * @param brand of the <code>Guitar</code>
      * @return this <code>GuitarBuilder</code>
      */
     GuitarBuilder withBrand(String brand) {
@@ -31,6 +32,7 @@ class GuitarBuilder {
     /**
      * Adds Model attribute to the guitar
      *
+     * @param model of the <code>Guitar</code>
      * @return this <code>GuitarBuilder</code>
      */
     GuitarBuilder withModel(String model) {
@@ -43,6 +45,7 @@ class GuitarBuilder {
     /**
      * Adds Price attribute to the guitar
      *
+     * @param price of the <code>Guitar</code>
      * @return this <code>GuitarBuilder</code>
      */
     GuitarBuilder withPrice(Number price) {
@@ -55,6 +58,7 @@ class GuitarBuilder {
     /**
      * Adds SoundType attribute to the guitar
      *
+     * @param type of sound (electric/acoustic) of the <code>Guitar</code>
      * @return this <code>GuitarBuilder</code>
      */
     GuitarBuilder withSoundType(String type) {
@@ -67,6 +71,8 @@ class GuitarBuilder {
     /**
      * Adds top and back Wood attribute to the guitar
      *
+     * @param top wood of the <code>Guitar</code>
+     * @param back Wood of the <code>Guitar</code>
      * @return this <code>GuitarBuilder</code>
      */
     GuitarBuilder withWood(String top, String back) {
@@ -80,7 +86,7 @@ class GuitarBuilder {
     /**
      * Returns the constructed guitar
      *
-     * @return the <Guitar>
+     * @return the <code>Guitar</code>
      */
     Guitar build() {
         return guitar;

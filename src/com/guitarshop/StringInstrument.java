@@ -7,12 +7,20 @@ package com.guitarshop;
  * @version 1.1
  */
 public abstract class StringInstrument {
+    /** stores data relevant to Rick's guitar shop */
     protected Metadata meta;
+    /** brand of the string instrument */
     protected Brand brand;
+    /** model of the string instrument */
     protected String model;
+    /** cost of the string instrument */
     protected Float price;
+    /** sound type of the string instrument */
     protected SoundType type;
-    protected Wood topWood, backWood;
+    /** top wood of the string instrument */
+    protected Wood topWood; 
+    /** back wood of the string instrument */
+    protected Wood backWood;
 
     /**
      * Creates a new StringInstrument
@@ -26,7 +34,7 @@ public abstract class StringInstrument {
      *
      * @return GuitarBuilder
      */
-    static GuitarBuilder guitarBuilder() {
+    public static GuitarBuilder guitarBuilder() {
         return new GuitarBuilder();
     }
 
@@ -35,7 +43,7 @@ public abstract class StringInstrument {
      *
      * @return MandolinBuilder
      */
-    static MandolinBuilder mandolinBuilder() {
+    public static MandolinBuilder mandolinBuilder() {
         return new MandolinBuilder();
     }
 
@@ -123,7 +131,8 @@ public abstract class StringInstrument {
                 || property.equals(model.toLowerCase())
                 || SoundType.testEquality(type, property)
                 || Wood.testEquality(topWood, property)
-                || Wood.testEquality(backWood, property);
+                || Wood.testEquality(backWood, property)
+                || property.toLowerCase().equals(this.getClass().getSimpleName().toLowerCase());
     }
 
     /**
@@ -134,7 +143,7 @@ public abstract class StringInstrument {
     @Override
     public String toString() {
         return String.format(
-                "\t| %-9s  | %03d  | %-19s | %-18s |  %-06.2f   |  %-10s        | %-10s | %-10s |\n",
+                "\t| %-9s  | %03d  | %-19s | %-18s |  %06.2f   |  %-10s        | %-10s | %-10s |\n",
                 this.getClass().getSimpleName(), meta.getSno(), brand, model, price, type, topWood, backWood);
     }
 }
