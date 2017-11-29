@@ -1,5 +1,6 @@
 package com.guitarshop;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
@@ -13,7 +14,7 @@ import java.util.NoSuchElementException;
  * @version 1.1
  */
 public class Inventory {
-    private final Map<Integer, StringInstrument> stock, sales; // available collection, sales map
+    private final HashMap<Integer, Guitar> stock, sales; // available collection, sales map
 
     /**
      * Default Constructor
@@ -26,11 +27,10 @@ public class Inventory {
     /**
      * Creates guitar from given parameters and hands off adding to stock to its polymorphic counterpart
      *
-     * @param si a <code>StringInstrument</code>
+     * @param g a <code>Guitar</code>
      */
-    public void addToCollection(StringInstrument si) {
-        si.assignSno();
-        stock.put(si.getSno(), si);
+    public void addToCollection(Guitar g) {
+        stock.put(g.getSno(), g);
     }
 
     /**
@@ -42,8 +42,8 @@ public class Inventory {
     public boolean sell(int serialNo) {
         if (!stock.containsKey(serialNo)) throw new
                 IllegalArgumentException("Invalid Serial Number.");
-        StringInstrument si = stock.get(serialNo);
-        return stock.remove(serialNo, si) && si == sales.put(serialNo, si);
+        Guitar g = stock.get(serialNo);
+        return stock.remove(serialNo, g) && g == sales.put(serialNo, g);
     }
 
     /**
@@ -51,17 +51,36 @@ public class Inventory {
      *
      * @param coll     the collection to search from
      * @param property string value that is tested against
-     *                 all fields of StringInstrument, regardless of its intrinsic data type
+     *                 all fields of Guitar, regardless of its intrinsic data type
      * @return list of matched elements, or NoSuchElementException
      */
-    private ArrayList<StringInstrument> refinedSearch(Collection<StringInstrument> coll, String property) {
+    private List<Guitar> refinedSearch(Collection<Guitar> coll, String property) {
         if (coll.isEmpty()) throw new IllegalArgumentException("Nothing to search.");
-        ArrayList<StringInstrument> results = new ArrayList<>(stock.size());
-        for (StringInstrument si : coll)
-            if (si.contains(property))
-                results.add(si);
+        List<Guitar> results = new ArrayList<>(coll.size());
+        for (Guitar g : coll)
+            if (g.contains(property))
+                results.add(g);
         if (results.isEmpty()) throw new
                 NoSuchElementException(String.format("There are no elements with the \"%s\" keyword in any field.", property));
+        return results;
+    }
+
+    /**
+     * Actual implementation of the search method
+     *
+     * @param coll     the collection to search from
+     * @param property string value that is tested against
+     *                 all fields of Guitar, regardless of its intrinsic data type
+     * @return list of matched elements, or NoSuchElementException
+     */
+    private List<Guitar> refinedSearch(Collection<Guitar> coll, GuitarSpecification ideal) {
+        if (coll.isEmpty()) throw new IllegalArgumentException("Nothing to search.");
+        List<Guitar> results = new ArrayList<>(coll.size());
+        for (Guitar g : coll)
+            if (g.matches(ideal))
+                results.add(g);
+        if (results.isEmpty()) throw new
+                NoSuchElementException(String.format("There are no elements with the requested specifcation.\n"));
         return results;
     }
 
@@ -72,9 +91,9 @@ public class Inventory {
      *
      * @param coll     Collection to search from
      * @param property Property to search by
-     * @return ArrayList containing [1,N] guitars, or null
+     * @return List containing [1,N] guitars, or null
      */
-    public ArrayList<StringInstrument> search(Collection<StringInstrument> coll, String property) {
+    public List<Guitar> search(Collection<Guitar> coll, String property) {
         return refinedSearch(coll, property);
     }
 
@@ -82,9 +101,9 @@ public class Inventory {
      * Searches for a guitar based on a single keyword
      *
      * @param s Property to search by
-     * @return StringInstrument complete object if found, or null
+     * @return Guitars if found, or null
      */
-    public ArrayList<StringInstrument> search(String s) {
+    public List<Guitar> search(String s) {
         return refinedSearch(stock.values(), s);
     }
 
@@ -99,20 +118,20 @@ public class Inventory {
      */
     public void replace(int serialNo, String field, String value) throws NoSuchElementException, IllegalArgumentException {
         if (!stock.containsKey(serialNo))
-            throw new NoSuchElementException(String.format("StringInstrument #%d is not in stock.", serialNo));
-        StringInstrument si = stock.get(serialNo);
-        if (purify(field).equals("brand")) si.setBrand(value);
-        else if (purify(field).equals("model")) si.setModel(value);
+            throw new NoSuchElementException(String.format("Guitar #%d is not in stock.", serialNo));
+        Guitar g = stock.get(serialNo);
+        if (purify(field).equals("brand")) g.setBrand(value);
+        else if (purify(field).equals("model")) g.setModel(value);
         else if (purify(field).equals("price"))
             try {
                 Float.parseFloat(value);
-                si.setPrice(Float.parseFloat(value));
+                g.setPrice(Float.parseFloat(value));
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException(String.format("Price can only be a decimal. %s is not.", value));
             }
-        else if (purify(field).equals("soundtype")) si.setSoundType(value);
-        else if (purify(field).equals("topwood")) si.setTopWood(value);
-        else if (purify(field).equals("backwood")) si.setBackWood(value);
+        else if (purify(field).equals("soundtype")) g.setSoundType(value);
+        else if (purify(field).equals("topwood")) g.setTopWood(value);
+        else if (purify(field).equals("backwood")) g.setBackWood(value);
         else throw new IllegalArgumentException(String.format("%s is not an editable field.", (String) field));
     }
 
@@ -125,9 +144,9 @@ public class Inventory {
     /**
      * Returns a Collection of guitars in stock
      *
-     * @return Collection of StringInstruments in stock
+     * @return Collection of Guitars in stock
      */
-    public Collection<StringInstrument> getStockContents() {
+    public Collection<Guitar> getStockContents() {
         return stock.values();
     }
 
@@ -141,25 +160,25 @@ public class Inventory {
     }
 
     /**
-     * Returns a StringInstrument with given serial number from stock
+     * Returns a Guitar with given serial number from stock
      *
      * @param serialNo serial number of guitar to get from stock
-     * @return StringInstrument if found
+     * @return Guitar if found
      * @throws NoSuchElementException if guitar is not in stock
      */
-    public StringInstrument getFromStock(int serialNo) {
-        StringInstrument si = stock.get(serialNo);
-        if (si == null) throw new NoSuchElementException(
-                String.format("StringInstrument #%d is not in stock.\n", serialNo));
-        return si;
+    public Guitar getFromStock(int serialNo) {
+        Guitar g = stock.get(serialNo);
+        if (g == null) throw new NoSuchElementException(
+                String.format("Guitar #%d is not in stock.\n", serialNo));
+        return g;
     }
 
     /**
      * Returns a Collection of guitars sold
      *
-     * @return Collection of StringInstruments sold
+     * @return Collection of Guitars sold
      */
-    public Collection<StringInstrument> getSalesContents() {
+    public Collection<Guitar> getSalesContents() {
         return sales.values();
     }
 
@@ -199,10 +218,10 @@ public class Inventory {
      *
      * @param c collection to display from
      */
-    public void showFrom(Collection<StringInstrument> c) {
+    public void showFrom(Collection<Guitar> c) {
         printPadding();
-        for (StringInstrument si : c)
-            System.out.printf("%s", si);
+        for (Guitar g : c)
+            System.out.printf("%s", g);
         printPadding(true);
     }
 }

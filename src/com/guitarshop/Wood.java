@@ -4,7 +4,7 @@ package com.guitarshop;
  * Represents Guitar Wood Type
  */
 enum Wood {
-    ROSEWOOD("Rosewood"), ALDER("Alder"), MAHOGANY("Mahogany"), CEDAR("Cedar");
+    ROSEWOOD("Rosewood"), ALDER("Alder"), MAHOGANY("Mahogany"), CEDAR("Cedar"), WILDCARD("*");
     private final String name;
 
     Wood(String name) {
@@ -41,6 +41,17 @@ enum Wood {
         } catch (IllegalArgumentException e) {
             return false;
         }
+    }
+
+    /**
+     * Tests equality of two enum values.
+     *
+     * @param val1 enum value 1
+     * @param val2 enum value 2
+     * @return Returns <code>true</code> if values are equal
+     */
+    public static boolean testEquality(Wood val1, Wood val2){
+        return val1 == val2;
     }
 
     /**

@@ -4,7 +4,7 @@ package com.guitarshop;
  * Represents Guitar SoundType
  */
 enum SoundType {
-    ACOUSTIC("Acoustic"), ELECTRIC("Electric");
+    ACOUSTIC("Acoustic"), ELECTRIC("Electric"), WILDCARD("*");
     private final String name;
 
     SoundType(String s) {
@@ -41,6 +41,17 @@ enum SoundType {
         } catch (IllegalArgumentException e) {
             return false;
         }
+    }
+
+    /**
+     * Tests equality of two enum values.
+     *
+     * @param val1 enum value 1
+     * @param val2 enum value 2
+     * @return Returns <code>true</code> if values are equal
+     */
+    public static boolean testEquality(SoundType val1, SoundType val2){
+        return val1 == val2;
     }
 
     /**

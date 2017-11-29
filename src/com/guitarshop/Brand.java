@@ -6,7 +6,7 @@ package com.guitarshop;
 enum Brand {
     GIBSON("Gibson"), FENDER("Fender"), IBANEZ("Ibanez"), PAULREEDSMITH("Paul Reed Smith"),
     EPIPHONE("Epiphone"), JACKSON("Jackson"), TAYLOR("Taylor"), MARTIN("Martin"),
-    YAMAHA("Yamaha"), RICKENBACKER("Rickenbacker");
+    YAMAHA("Yamaha"), RICKENBACKER("Rickenbacker"), WILDCARD("*");
     private final String name;
 
     Brand(String name) {
@@ -45,6 +45,17 @@ enum Brand {
         } catch (IllegalArgumentException e) {
             return false;
         }
+    }
+
+    /**
+     * Tests equality of two enum values.
+     *
+     * @param val1 enum value 1
+     * @param val2 enum value 2
+     * @return Returns <code>true</code> if values are equal
+     */
+    public static boolean testEquality(Brand val1, Brand val2){
+        return val1 == val2;
     }
 
     /**

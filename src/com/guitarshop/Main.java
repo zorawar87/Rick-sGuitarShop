@@ -1,5 +1,6 @@
 package com.guitarshop;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.NoSuchElementException;
@@ -9,7 +10,7 @@ import java.util.Scanner;
  * Is the user interface for Rick's Guitar Shop
  *
  * @author Zorawar Moolenaar
- * @version 0.7
+ * @version 0.8
  */
 public class Main {
     private static final Inventory inv = new Inventory();
@@ -69,35 +70,29 @@ public class Main {
     }
 
     private static void jdi(){
-      StringInstrument si;
-      si = Guitar.builder().withBrand("Yamaha").withModel("adads").withSoundType("acoustic").withWood("cedar","alder").build();
-      inv.addToCollection(si);
-      si = Mandolin.builder().withBrand("Fender").withModel("cxzv").withSoundType("electric").withWood("rosewood","mahogany").build();
-      inv.addToCollection(si);
-      si = Mandolin.builder().withBrand("Paul Reed Smith").withModel("qwewq").withSoundType("electric").withWood("cedar","mahogany").build();
-      inv.addToCollection(si);
+      GuitarSpecification gs;
+      gs = GuitarSpecification.builder().withBrand("Yamaha").withModel("adads").withSoundType("acoustic").withWood("cedar","alder").build();
+      inv.addToCollection(new Guitar(gs));
+      gs = GuitarSpecification.builder().withBrand("Fender").withModel("cxzv").withSoundType("electric").withWood("rosewood","mahogany").build();
+      inv.addToCollection(new Guitar(gs));
+      gs = GuitarSpecification.builder().withBrand("Paul Reed Smith").withModel("qwewq").withSoundType("electric").withWood("cedar","mahogany").build();
+      inv.addToCollection(new Guitar(gs));
     }
 
     /**
      * Allows user to insert a guitar through the command line
-     */
     private static void insert() {
         int ch; // stores whether the client wants to repeat task
         do {
             Scanner sc = new Scanner(System.in);
             ch = 0;
-            System.out.print("\t\tGuitar or Mandolin? (1/2) ");
-            int instrumentCh=0;
-            instrumentCh = sc.nextInt();
-            if (instrumentCh == 1) inv.addToCollection(populateGuitar());
-            else if (instrumentCh == 2) inv.addToCollection(populateMandolin());
-            else {System.out.println("Aborting. Try Again."); continue;}
+            inv.addToCollection(populateGuitar());
             System.out.println("\tAdd was successful! Would you like to add more? (1/0) ");
             ch = sc.nextInt();
         } while (ch == 1);
     }
 
-    private static StringInstrument populateStringInstrument(StringInstrument si){
+    private static Guitar populateGuitar(Guitar si){
       Scanner sc = new Scanner(System.in);
       try {
           System.out.print("\t\tBrand: ");
@@ -126,7 +121,7 @@ public class Main {
       Guitar g = new Guitar();
       Scanner sc = new Scanner(System.in);
       try {
-          g =(Guitar)populateStringInstrument(g);
+          g =(Guitar)populateGuitar(g);
           System.out.print("\t\tString Count: ");
           g.setStringCount(sc.nextInt());
       } catch (Exception e) {
@@ -135,21 +130,7 @@ public class Main {
       }
       return g;
     }
-
-    private static Mandolin populateMandolin(){
-      Mandolin m = new Mandolin();
-      Scanner sc = new Scanner(System.in);
-      try {
-          m = (Mandolin)populateStringInstrument(m);
-          System.out.print("\t\tMandolin Style: ");
-          m.setStyle(sc.nextLine());
-      } catch (Exception e) {
-          e.printStackTrace();
-          System.out.println("\tAborting. Error.");
-      }
-      return m;
-    }
-
+     */
 
     /**
      * Allows user to remove guitars from command line
@@ -173,7 +154,7 @@ public class Main {
     private static void modify() {
         Scanner sc = new Scanner(System.in);
         int serialNo;
-        StringInstrument si = null;
+        Guitar si = null;
         do {
             System.out.print("Serial number of the string instrument to modify: ");
             serialNo = sc.nextInt();
@@ -185,7 +166,7 @@ public class Main {
                                 serialNo));
             }
         } while (si != null);
-        ArrayList<StringInstrument> coll = new ArrayList<>();
+        ArrayList<Guitar> coll = new ArrayList<>();
         coll.add(si);
         display(coll);
         System.out.print("Modify appropriate values. Leave blank otherwise:\n");
@@ -228,7 +209,7 @@ public class Main {
 
     private static void search() {
         System.out.println("You can search by S.No, type, brand, model, (back/top)wood.");
-        ArrayList<StringInstrument> res = new ArrayList<StringInstrument>();
+        List<Guitar> res = new ArrayList<Guitar>();
         int ch; // stores whether the client wants to repeat task
         do {
             Scanner sc = new Scanner(System.in);
@@ -256,7 +237,7 @@ public class Main {
      *
      * @param c collection to display from
      */
-    private static void display(Collection<StringInstrument> c) {
+    private static void display(Collection<Guitar> c) {
         inv.showFrom(c);
     }
 

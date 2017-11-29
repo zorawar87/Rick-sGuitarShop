@@ -32,52 +32,52 @@ public class InventoryTest {
     private static void addToCollectionTest() {
         System.out.println("Test#1: Adding to collection.");
         System.out.println("\t\tTest#1.1: Testing proper input, case and whitespace insensitivity, and some errors.");
-        StringInstrument si =  Guitar.builder()
-                .withBrand("Gibson").withModel("something").withPrice(123)
+        GuitarSpecification gs =  GuitarSpecification.builder()
+                .withBrand("Gibson").withModel("something")
                 .withSoundType("acoustic").withWood("Rose Wood", "Cedar")
                 .build();
-        inv.addToCollection(si);
-        si = Guitar.builder()
-                .withBrand("Paul Reed Smith").withModel("fancy").withPrice(222)
+        inv.addToCollection(new Guitar(gs,123));
+        gs = GuitarSpecification.builder()
+                .withBrand("Paul Reed Smith").withModel("fancy")
                 .withSoundType("El ecTr ic").withWood("alder", "mahogany")
                 .build();
-        inv.addToCollection(si);
-        si = Guitar.builder()
-                .withBrand("fEn dEr    ").withModel("works").withPrice(299.99)
+        inv.addToCollection(new Guitar(gs,222));
+        gs = GuitarSpecification.builder()
+                .withBrand("fEn dEr    ").withModel("works")
                 .withSoundType("AcOUSTic").withWood("Cedar", "alder")
                 .build();
-        inv.addToCollection(si);
-        si = Guitar.builder()
-                .withBrand("  Ya Ma Ha  ").withModel("xx5321").withPrice(315.99)
+        inv.addToCollection(new Guitar(gs,299.99));
+        gs = GuitarSpecification.builder()
+                .withBrand("  Ya Ma Ha  ").withModel("xx5321")
                 .withSoundType("electric").withWood("Cedar", "alder")
                 .build();
-        inv.addToCollection(si);
+        inv.addToCollection(new Guitar(gs,315.99));
         System.out.println("\t\tTest#1.2: Testing incorrect methods." +
                 "These will throw IllegalArgumentExceptions to be handled by the UI.");
         try {
-            si = Guitar.builder()
-                    .withBrand("IbAnEz").withModel("works").withPrice(299.99)
+            gs = GuitarSpecification.builder()
+                    .withBrand("IbAnEz").withModel("works")
                     .withSoundType("Electric").withWood("rosewod", "Cedar")
                     .build();
-            inv.addToCollection(si);
+            inv.addToCollection(new Guitar(gs,299.99));
         } catch (IllegalArgumentException e) {
             System.out.println("\t\t\tCaught Exception: " + e);
         }
         try {
-            si = Guitar.builder()
-                    .withBrand("Ibanez").withModel("works").withPrice(299.99)
+            gs = GuitarSpecification.builder()
+                    .withBrand("Ibanez").withModel("works")
                     .withSoundType("Electrics").withWood("rosewod", "Cedar")
                     .build();
-            inv.addToCollection(si);
+            inv.addToCollection(new Guitar(gs,299.99));
         } catch (IllegalArgumentException e) {
             System.out.println("\t\t\tCaught Exception: " + e);
         }
         try {
-            si = Guitar.builder()
-                    .withBrand("IbAnE").withModel("works").withPrice(299.99)
+            gs = GuitarSpecification.builder()
+                    .withBrand("IbAnE").withModel("works")
                     .withSoundType("Eectric").withWood("rosewod", "Cedar")
                     .build();
-            inv.addToCollection(si);
+            inv.addToCollection(new Guitar(gs,299.99));
         } catch (IllegalArgumentException e) {
             System.out.println("\t\t\tCaught Exception: " + e);
         }
@@ -118,15 +118,15 @@ public class InventoryTest {
     private static void searchTest() {
         System.out.println("Test#3: Searching.");
         System.out.println("\t\tTest#3.1: Testing proper input, case and whitespace insensitivity, and some errors.");
-        ArrayList<StringInstrument> res;
+        List<Guitar> res;
         System.out.println("\t\t\tTest#3.1.1: Searching for \"electric\".");
         res = inv.search("electric");
         display(res);
         System.out.println("\t\t\tTest#3.1.1.1: Refining Searching  \"electric AND alder\".");
         inv.search(res, "ald er");
         display(res);
-        System.out.println("\t\t\tTest#3.1.2: Searching for \"1\".");
-        res = inv.search("1");
+        System.out.println("\t\t\tTest#3.1.2: Searching for \"2\".");
+        res = inv.search("2");
         display(res);
         System.out.println("\t\t\tTest#3.1.3: Searching for \"gib   SON\".");
         res = inv.search("gib   SON");
@@ -164,7 +164,7 @@ public class InventoryTest {
         display(inv.getSalesContents());
     }
 
-    private static void display(Collection<StringInstrument> c) {
+    private static void display(Collection<Guitar> c) {
         inv.showFrom(c);
     }
 }

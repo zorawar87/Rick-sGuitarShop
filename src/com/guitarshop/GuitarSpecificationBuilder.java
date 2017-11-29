@@ -6,26 +6,26 @@ package com.guitarshop;
  * @author Zorawar Moolenaar
  * @version 1.1
  */
-class GuitarBuilder {
-    private final Guitar guitar;
+class GuitarSpecificationBuilder {
+    private final GuitarSpecification spec;
 
     /**
-     * Skeletal Constructor for <code>GuitarBuilder</code>
+     * Skeletal Constructor for <code>GuitarSpecificationBuilder</code>
      */
-    GuitarBuilder() {
-        guitar = new Guitar();
+    GuitarSpecificationBuilder() {
+        spec = new GuitarSpecification();
     }
 
     /**
      * Adds Brand attribute to the guitar
      *
      * @param brand of the <code>Guitar</code>
-     * @return this <code>GuitarBuilder</code>
+     * @return this <code>GuitarSpecificationBuilder</code>
      */
-    GuitarBuilder withBrand(String brand) {
+    GuitarSpecificationBuilder withBrand(String brand) {
         if (brand == null)
             throw new IllegalArgumentException("brand can not be null");
-        guitar.setBrand(brand);
+        spec.setBrand(brand);
         return this;
     }
 
@@ -33,25 +33,12 @@ class GuitarBuilder {
      * Adds Model attribute to the guitar
      *
      * @param model of the <code>Guitar</code>
-     * @return this <code>GuitarBuilder</code>
+     * @return this <code>GuitarSpecificationBuilder</code>
      */
-    GuitarBuilder withModel(String model) {
+    GuitarSpecificationBuilder withModel(String model) {
         if (model == null)
             throw new IllegalArgumentException("model can not be null");
-        guitar.setModel(model);
-        return this;
-    }
-
-    /**
-     * Adds Price attribute to the guitar
-     *
-     * @param price of the <code>Guitar</code>
-     * @return this <code>GuitarBuilder</code>
-     */
-    GuitarBuilder withPrice(Number price) {
-        if (price == null)
-            throw new IllegalArgumentException("price can not be null");
-        guitar.setPrice(price.floatValue());
+        spec.setModel(model);
         return this;
     }
 
@@ -59,12 +46,12 @@ class GuitarBuilder {
      * Adds SoundType attribute to the guitar
      *
      * @param type of sound (electric/acoustic) of the <code>Guitar</code>
-     * @return this <code>GuitarBuilder</code>
+     * @return this <code>GuitarSpecificationBuilder</code>
      */
-    GuitarBuilder withSoundType(String type) {
+    GuitarSpecificationBuilder withSoundType(String type) {
         if (type == null)
             throw new IllegalArgumentException("sound type can not be null");
-        guitar.setSoundType(type);
+        spec.setSoundType(type);
         return this;
     }
 
@@ -73,13 +60,13 @@ class GuitarBuilder {
      *
      * @param top wood of the <code>Guitar</code>
      * @param back Wood of the <code>Guitar</code>
-     * @return this <code>GuitarBuilder</code>
+     * @return this <code>GuitarSpecificationBuilder</code>
      */
-    GuitarBuilder withWood(String top, String back) {
+    GuitarSpecificationBuilder withWood(String top, String back) {
         if (top == null || back == null)
             throw new IllegalArgumentException("top and back wood can not be null");
-        guitar.setTopWood(top);
-        guitar.setBackWood(back);
+        spec.setTopWood(top);
+        spec.setBackWood(back);
         return this;
     }
 
@@ -88,8 +75,8 @@ class GuitarBuilder {
      *
      * @return the <code>Guitar</code>
      */
-    Guitar build() {
-        return guitar;
+    GuitarSpecification build() {
+        return spec;
     }
 
 }
