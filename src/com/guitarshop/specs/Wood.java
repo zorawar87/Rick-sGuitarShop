@@ -1,9 +1,9 @@
-package com.guitarshop;
+package com.guitarshop.specs;
 
 /**
  * Represents Guitar Wood Type
  */
-enum Wood {
+enum Wood implements SpecValue<Wood> {
   ROSEWOOD ("Rosewood"), ALDER ("Alder"), MAHOGANY ("Mahogany"), CEDAR ("Cedar"), WILDCARD ("*");
   private final String name;
 
@@ -31,10 +31,9 @@ enum Wood {
    *
    * @param standard enum value to compare against
    * @param value    raw value that is being tested
-   * @return Returns <code>true</code> if values are equal
-   * @throws IllegalArgumentException if raw string could not get validated
+   * @return Returns <code>true</code> if values are equal; <code>false</code> otherwise
    */
-  public static boolean testEquality (Wood standard, String value) throws IllegalArgumentException {
+  public boolean testEquality (Wood standard, String value) {
     try {
       Wood test = Wood.validate (value);
       return standard == test;
@@ -44,18 +43,7 @@ enum Wood {
   }
 
   /**
-   * Tests equality of two enum values.
-   *
-   * @param val1 enum value 1
-   * @param val2 enum value 2
-   * @return Returns <code>true</code> if values are equal
-   */
-  public static boolean testEquality (Wood val1, Wood val2) {
-    return val1 == val2;
-  }
-
-  /**
-   * Returns a string representation of this Brand
+   * Returns a string representation of this Builder
    */
   @Override
   public String toString() {
