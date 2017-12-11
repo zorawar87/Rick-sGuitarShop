@@ -18,10 +18,6 @@ public class Instrument {
       return serialNo;
     }
     
-    public void setSerialNo(int serialNo) {
-      this.serialNo = serialNo;
-    }
-    
     Float getPrice() {
       return price;
     }
