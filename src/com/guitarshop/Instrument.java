@@ -46,14 +46,19 @@ public class Instrument {
   public int getSerialNo() {
     return meta.getSerialNo();
   }
+  
   public Float getPrice() {
     return meta.getPrice();
   }
-  public void addNewProperty(String key, SpecValue value){
-    spec.addNewProperty(key,value);
-  }
-  public void updateProperty(String key, SpecValue value){
-    spec.updateProperty(key,value);
+  
+  /**
+   * Adds or updates key-value pair within the instrument's specification
+   *
+   * @param key property name of the instrument
+   * @param value property value of the instrument
+   */
+  public void addProperty(String key, SpecValue value) {
+    spec.addProperty(key, value);
   }
   
   public boolean matches(InstrumentSpecification template) {

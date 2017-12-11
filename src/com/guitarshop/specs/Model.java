@@ -4,10 +4,10 @@ public class Model implements SpecValue {
   private final String name;
   
   public Model(String name) {
-    this.name = name;
+    this.name = name.toLowerCase();
   }
   
-  public static Model createModel(String name){
+  public static Model create(String name){
     return new Model(name);
   }
   @Override

@@ -11,23 +11,23 @@ public class InstrumentSpecification {
   
   public InstrumentSpecification() {
     spec = new HashMap <>(7);
-    addNewProperty("instrument name", InstrumentName.WILDCARD);
-    addNewProperty("type", SoundType.WILDCARD);
-    addNewProperty("builder", Builder.WILDCARD);
-    addNewProperty("back wood", Wood.WILDCARD);
-    addNewProperty("top wood", Wood.WILDCARD);
-    addNewProperty("model", Model.createModel("*"));
+    addProperty("instrument name", InstrumentName.WILDCARD);
+    addProperty("type", SoundType.WILDCARD);
+    addProperty("builder", Builder.WILDCARD);
+    addProperty("back wood", Wood.WILDCARD);
+    addProperty("top wood", Wood.WILDCARD);
+    addProperty("model", Model.create("*"));
   }
   
   // TODO: prohibit if property and value are not of the same type
-  public InstrumentSpecification addNewProperty(String property, SpecValue value){
-    spec.put(property,value);
+  public InstrumentSpecification addProperty(String property, SpecValue value){
+    if (spec.containsKey(property))
+      spec.replace(property,value);
+    else
+      spec.put(property,value);
     return this;
   }
-  public InstrumentSpecification updateProperty(String property, SpecValue value){
-    spec.replace(property,value);
-    return this;
-  }
+  
   
   // does not perform input checking. expects one of seven valid properties
   public SpecValue getProperty(String property) throws IllegalArgumentException {
@@ -55,6 +55,7 @@ public class InstrumentSpecification {
     String templateKey = e.getKey();
     SpecValue templateVal = e.getValue();
     return spec.containsKey(templateKey) &&
-        getProperty(templateKey) == templateVal;
+        (templateVal.equals(getProperty(templateKey))) ||
+        (templateVal.toString().equalsIgnoreCase("*"));
   }
 }

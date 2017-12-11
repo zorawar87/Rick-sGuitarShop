@@ -49,6 +49,23 @@ public class Inventory {
   }
   
   /**
+   * replace a given instrument field, view a specified value
+   *
+   * @param serialNo serial no of instrument to change
+   * @param field    field of instrument to change; MUST BE Title Case
+   * @param value    value of field to set
+   * @throws NoSuchElementException   if invalid serial number is injected
+   */
+  public void replace(int serialNo, String field,
+                      SpecValue value) throws NoSuchElementException {
+    if (!stock.containsKey(serialNo))
+      throw new NoSuchElementException(String.format("Instrument #%d is not in stock.",
+          serialNo));
+    Instrument i = stock.get(serialNo);
+    i.addProperty(field,value);
+  }
+  
+  /**
    * Actual implementation of the search method
    *
    * @param coll  the collection to search from
@@ -93,23 +110,6 @@ public class Inventory {
     return refinedSearch(stock.values(), ideal);
   }
   
-  /**
-   * replace a given instrument field, view a specified value
-   *
-   * @param serialNo serial no of instrument to change
-   * @param field    field of instrument to change; MUST BE Title Case
-   * @param value    value of field to set
-   * @throws NoSuchElementException   if invalid serial number is injected
-   * @throws IllegalArgumentException if invalid field or value is injected
-   */
-  public void replace(int serialNo, String field,
-                      SpecValue value) throws NoSuchElementException {
-    if (!stock.containsKey(serialNo))
-      throw new NoSuchElementException(String.format("Instrument #%d is not in stock.",
-          serialNo));
-    Instrument i = stock.get(serialNo);
-    i.updateProperty(field,value);
-  }
 
   /*
    *
