@@ -1,5 +1,12 @@
 package com.guitarshop.specs;
 
+/**
+ * Represents Instrument Specification Property for Mandolin Style
+ *
+ * @author Zorawar Moolenaar
+ * @version 2.0
+ * @since 1.1
+ */
 public enum Style implements SpecValue {
   A("A"), F("A");
   private final String name;
@@ -25,7 +32,7 @@ public enum Style implements SpecValue {
   }
   
   /**
-   * Tests equality of a known Mandolin Style value against a raw string value
+   * Tests equality of this Mandolin Style value against a raw string value
    *
    * @param value    raw value that is being tested
    * @return Returns <code>true</code> if values are equal; <code>false</code> otherwise

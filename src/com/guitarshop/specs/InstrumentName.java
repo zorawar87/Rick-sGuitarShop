@@ -15,6 +15,16 @@ public enum InstrumentName implements SpecValue {
     this.name = name;
   }
   
+  /**
+   * Validates a <code>String</code> value as <code>InstrumentName</code> enum value.
+   * <p>
+   *   Handling the exception is the callee's responsibility
+   * </p>
+   *
+   * @param value this will be validated
+   * @return enum value derived from param
+   * @throws IllegalArgumentException if raw string could not get validated
+   */
   public static InstrumentName validate(String value) throws IllegalArgumentException {
     for (InstrumentName i : InstrumentName.values()) {
       if (i.name.replaceAll(" ", "")

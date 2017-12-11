@@ -1,7 +1,11 @@
 package com.guitarshop.specs;
 
 /**
- * Represents Guitar SoundType
+ * Represents Instrument Specification Property for Sound Type
+ *
+ * @author Zorawar Moolenaar
+ * @version 2.0
+ * @since 1.0
  */
 public enum SoundType implements SpecValue {
   ACOUSTIC("Acoustic"), ELECTRIC("Electric"), WILDCARD("*");
@@ -27,7 +31,7 @@ public enum SoundType implements SpecValue {
   }
   
   /**
-   * Tests equality of a known SoundType value against a raw string value
+   * Tests equality of this SoundType value against a raw string value
    *
    * @param value raw value that is being tested
    * @return Returns <code>true</code> if values are equal; <code>false</code> otherwise

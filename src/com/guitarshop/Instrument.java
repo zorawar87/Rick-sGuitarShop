@@ -34,19 +34,36 @@ public class Instrument {
   private final Metadata meta;
   private final InstrumentSpecification spec;
   
+  /**
+   * Creates an Instrument with given InstrumentSpecification and Price
+   * @param spec InstrumentSpecification
+   * @param price Price of the instrument
+   */
   public Instrument(InstrumentSpecification spec, Number price) {
     this.spec = spec;
     this.meta = new Metadata(price);
   }
   
+  /**
+   * gets the specification of this instrument
+   * @return specification of this instrument
+   */
   public InstrumentSpecification getSpec() {
     return spec;
   }
   
+  /**
+   * gets the serial number of this instrument
+   * @return serial number
+   */
   public int getSerialNo() {
     return meta.getSerialNo();
   }
   
+  /**
+   * gets the price of this instrument
+   * @return price
+   */
   public Float getPrice() {
     return meta.getPrice();
   }
@@ -61,6 +78,13 @@ public class Instrument {
     spec.addProperty(key, value);
   }
   
+  /**
+   * Matches this instrument's specification against the given specification
+   *
+   * @param template value to match against
+   * @return true if the values match; false otherwise
+   * @see com.guitarshop.InstrumentSpecification
+   */
   public boolean matches(InstrumentSpecification template) {
     return spec.matches(template);
   }

@@ -24,7 +24,7 @@ public class InventoryTest {
     addToCollectionTest();
     modifyTest();
     searchTest();
-    //removeTest();
+    removeTest();
     System.out.println ("All Tests passed.");
     System.exit (0);
   }
@@ -87,55 +87,20 @@ public class InventoryTest {
         .addProperty("type",SoundType.WILDCARD).addProperty("back wood",Wood.ROSEWOOD).addProperty("top wood",Wood.WILDCARD);
     res = inv.search (is);
     display (res);
-    /*
-    gs =  InstrumentSpecification.builder()
-          .withBrand ("Paul Reed Smith").withModel ("*")
-          .withSoundType ("e l e c t r i c").withWood ("*", "mahOgAn  y")
-          .build();
-    display (res);
-
-    System.out.println ("\t\t\tTest#3.1.3: Searching for spec with brand \"gib   SON\", \"something\" model, AND \"acoustic\" sound type.");
-    gs =  InstrumentSpecification.builder()
-          .withBrand ("Gibson").withModel ("something")
-          .withSoundType ("acoustic").withWood ("*", "*")
-          .build();
-    res = inv.search (gs);
-    display (res);
-    System.out.println ("\t\tTest#3.2:. Testing with valid field values, but no guitars in-stock");
-    System.out.println ("\t\t\tTest#3.2.1: Searching for spec with brand \"gib   SON\", \"something\" model, AND \"acoustic\" sound type.");
-    try {
-      gs =  InstrumentSpecification.builder()
-            .withBrand ("gib   SON").withModel ("something")
-            .withSoundType ("electric").withWood ("*", "*")
-            .build();
-      res = inv.search (gs);
-      inv.search (gs);
-    } catch (NoSuchElementException e) {
-      System.out.println ("\t\t\tCaught Exception: " + e);
-    }
-    */
+    
     System.out.println ("Test#3: Passed.\nState of inventory:");
     display (inv.getStockContents());
   }
 
   private static void removeTest() {
-  /*
     System.out.println ("Test#4: Removing (Selling) elements.");
     System.out.println ("\t\tTest#4.1: Testing proper input, case and whitespace insensitivity, and some errors.");
-    inv.sell (3);
+    inv.sell (4);
     inv.sell (1);
-    System.out.println ("\t\tTest#4.2: Testing invalid serial numbers." +
-                        "These will throw IllegalArgumentExceptions to be handled by the UI.");
-    try {
-      inv.sell (22);
-    } catch (IllegalArgumentException e) {
-      System.out.println ("\t\t\tCaught Exception: " + e);
-    }
     System.out.println ("Test#4: Passed.\nState of inventory:");
     display (inv.getStockContents());
     System.out.println ("Test#4: The sales have been logged and contain:");
     display (inv.getSalesContents());
-    */
   }
 
   private static void display (Collection<Instrument> c) {

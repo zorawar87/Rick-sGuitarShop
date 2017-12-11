@@ -1,18 +1,21 @@
 package com.guitarshop.specs;
 
+/**
+ * Interface that all instrument properties should follow
+ *
+ * @author Zorawar Moolenaar
+ * @version 2.0
+ * @since 2.0
+ */
 public interface SpecValue {
+  /**
+   * Tests equality of this value again the given value.
+   *
+   * @param value to compare against
+   * @return true if the values are equal; false otherwise
+   */
   default boolean equals(String value){
     return this.equals(value);
   }
   
-  /**
-   * Tests equality of two <code>SpecValue</code> values.
-   *
-   * @param val1 value to compare against
-   * @param val2 value to compare with
-   * @return Returns <code>true</code> if values are equal; <code>false</code> otherwise
-   */
-  static boolean testEquality(SpecValue val1, SpecValue val2) {
-    return val1.equals(val2);
-  }
 }

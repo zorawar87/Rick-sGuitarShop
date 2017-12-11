@@ -1,7 +1,11 @@
 package com.guitarshop.specs;
 
 /**
- * Represents Guitar Wood Type
+ * Represents Instrument Specification Property for Wood
+ *
+ * @author Zorawar Moolenaar
+ * @version 2.0
+ * @since 1.0
  */
 public enum Wood implements SpecValue {
   ROSEWOOD("Rosewood"), ALDER("Alder"), MAHOGANY("Mahogany"), CEDAR("Cedar"), WILDCARD("*");
@@ -27,7 +31,7 @@ public enum Wood implements SpecValue {
   }
   
   /**
-   * Tests equality of a known Wood value against a raw string value
+   * Tests equality of this Wood value against a raw string value
    *
    * @param value raw value that is being tested
    * @return Returns <code>true</code> if values are equal; <code>false</code> otherwise

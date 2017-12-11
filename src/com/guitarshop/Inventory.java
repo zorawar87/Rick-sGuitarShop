@@ -2,11 +2,7 @@ package com.guitarshop;
 
 import com.guitarshop.specs.SpecValue;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 /**
  * Represents an inventory containing in-stock and sold instruments
@@ -27,9 +23,9 @@ public class Inventory {
   }
   
   /**
-   * Creates instrument from given parameters and hands off adding to stock to its polymorphic counterpart
+   * Adds given instrument to stock
    *
-   * @param i a <code>Instrument</code>
+   * @param i an <code>Instrument</code>
    */
   public void addToCollection(Instrument i) {
     stock.put(i.getSerialNo(), i);
@@ -50,11 +46,14 @@ public class Inventory {
   
   /**
    * replace a given instrument field, view a specified value
+   * <p>
+   *   The exception is expected to be handled by whatever interfaces this application with the user
+   * </p>
    *
    * @param serialNo serial no of instrument to change
    * @param field    field of instrument to change; MUST BE Title Case
    * @param value    value of field to set
-   * @throws NoSuchElementException   if invalid serial number is injected
+   * @throws NoSuchElementException if invalid serial number is injected
    */
   public void replace(int serialNo, String field,
                       SpecValue value) throws NoSuchElementException {
@@ -62,16 +61,20 @@ public class Inventory {
       throw new NoSuchElementException(String.format("Instrument #%d is not in stock.",
           serialNo));
     Instrument i = stock.get(serialNo);
-    i.addProperty(field,value);
+    i.addProperty(field, value);
   }
   
   /**
    * Actual implementation of the search method
+   * <p>
+   *   The exception is expected to be handled by whatever interfaces this application with the user
+   * </p>
    *
    * @param coll  the collection to search from
    * @param ideal value that is tested against
    *              all fields of Instrument, regardless of its intrinsic data type
-   * @return list of matched elements, or NoSuchElementException
+   * @return list of matched elements
+   * @throws NoSuchElementException when no results were found
    */
   private List <Instrument> refinedSearch(Collection <Instrument> coll,
                                           InstrumentSpecification ideal) {
@@ -87,9 +90,7 @@ public class Inventory {
   }
   
   /**
-   * Searches for a instrument based on a single keyword
-   * <p>
-   * Keyword can be any attribute of the instrument except the price.
+   * Searches for an instrument based on an instrument specification template
    *
    * @param coll  Collection to search from
    * @param ideal Property to search by
@@ -101,7 +102,7 @@ public class Inventory {
   }
   
   /**
-   * Searches for a instrument based on a single keyword
+   * Searches for an instrument based on an instrument specification template
    *
    * @param ideal Property to search by
    * @return Instruments if found, or null
@@ -112,9 +113,7 @@ public class Inventory {
   
 
   /*
-   *
    * Helper Methods
-   *
    */
   
   /**
@@ -124,15 +123,6 @@ public class Inventory {
    */
   public Collection <Instrument> getStockContents() {
     return stock.values();
-  }
-  
-  /**
-   * Checks whether there are any instruments in stock
-   *
-   * @return true if stock has instruments
-   */
-  public boolean stockNotEmpty() {
-    return !stock.isEmpty();
   }
   
   /**
@@ -158,10 +148,6 @@ public class Inventory {
     return sales.values();
   }
   
-  private String purify(String s) {
-    return s.toLowerCase().replaceAll(" ", "");
-  }
-
   /*
    * Table Generation Helpers
    */

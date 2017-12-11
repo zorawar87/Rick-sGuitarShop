@@ -1,7 +1,11 @@
 package com.guitarshop.specs;
 
 /**
- * Represents Guitar Builder
+ * Represents Instrument Specification Property for an instrument Builder
+ *
+ * @author Zorawar Moolenaar
+ * @version 2.0
+ * @since 1.0
  */
 public enum Builder implements SpecValue {
   GIBSON ("Gibson"), FENDER ("Fender"), IBANEZ ("Ibanez"), PAULREEDSMITH ("Paul Reed Smith"),
@@ -30,7 +34,6 @@ public enum Builder implements SpecValue {
     throw new IllegalArgumentException (String.format ("%s is no such builder.",
                                         value));
   }
-  
 
   /**
    * Tests equality of a known Builder value against a raw string value.
