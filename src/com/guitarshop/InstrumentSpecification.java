@@ -18,14 +18,8 @@ public class InstrumentSpecification {
     spec.put(property,value);
     return this;
   }
-  public InstrumentSpecification addProperty(String property, String value){
-    spec.put(property,resolveToEnum(value));
-    return this;
-  }
   
-  private SpecValue resolveToEnum(String value) {
-  }
-  
+  // does not perform input checking. expects one of seven valid properties
   public SpecValue getProperty(String property) throws IllegalArgumentException {
     if (spec.containsKey(property)) return spec.get(property);
     throw new IllegalArgumentException("No Such Instrument Property");

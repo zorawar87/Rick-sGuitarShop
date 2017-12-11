@@ -27,10 +27,10 @@ public class Inventory {
   /**
    * Creates instrument from given parameters and hands off adding to stock to its polymorphic counterpart
    *
-   * @param g a <code>Instrument</code>
+   * @param i a <code>Instrument</code>
    */
-  public void addToCollection(Instrument g) {
-    stock.put(g.getSerialNo(), g);
+  public void addToCollection(Instrument i) {
+    stock.put(i.getSerialNo(), i);
   }
   
   /**

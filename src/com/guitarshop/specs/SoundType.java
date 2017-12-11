@@ -3,7 +3,7 @@ package com.guitarshop.specs;
 /**
  * Represents Guitar SoundType
  */
-enum SoundType implements SpecValue<SoundType> {
+public enum SoundType implements SpecValue {
   ACOUSTIC("Acoustic"), ELECTRIC("Electric"), WILDCARD("*");
   private final String name;
   
@@ -20,8 +20,8 @@ enum SoundType implements SpecValue<SoundType> {
    */
   public static SoundType validate(String value) throws IllegalArgumentException {
     for (SoundType t : SoundType.values())
-      if (t.name.toLowerCase().equals(
-          value.toLowerCase().replaceAll(" ", "")))
+      if (t.name.equalsIgnoreCase(
+          value.replaceAll(" ", "")))
         return t;
     throw new IllegalArgumentException(String.format("%s is no such sound type", value));
   }
@@ -29,14 +29,13 @@ enum SoundType implements SpecValue<SoundType> {
   /**
    * Tests equality of a known SoundType value against a raw string value
    *
-   * @param standard enum value to compare against
-   * @param value    raw value that is being tested
+   * @param value raw value that is being tested
    * @return Returns <code>true</code> if values are equal; <code>false</code> otherwise
    */
-  public boolean testEquality(SoundType standard, String value) {
+  public boolean equals(String value) {
     try {
       SoundType test = SoundType.validate(value);
-      return standard == test;
+      return this == test;
     } catch (IllegalArgumentException e) {
       return false;
     }

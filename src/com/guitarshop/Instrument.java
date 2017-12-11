@@ -1,5 +1,9 @@
 package com.guitarshop;
 
+import com.guitarshop.specs.SpecValue;
+
+import java.util.Map;
+
 public class Instrument {
   private static int COUNTER= 0;
   class Metadata {
@@ -54,6 +58,10 @@ public class Instrument {
         spec.getBackWood());
         */
     return String.format (
-        "\t| %-9s  | %03d  |\n",this.getClass().getSimpleName(), meta.getSerialNo());
+        "\t| %-9s  | %03d  | %-19s | %-18s |  %06.2f   |  %-10s        | %-10s | %-10s |\n",
+        spec.getProperty("instrument name"), meta.getSerialNo(), spec.getProperty("builder"),
+        spec.getProperty("model"),meta.getPrice(),spec.getProperty("type"),spec.getProperty("top wood"),
+        spec.getProperty("back wood")
+    );
   }
 }

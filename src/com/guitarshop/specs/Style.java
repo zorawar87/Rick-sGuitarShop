@@ -1,7 +1,13 @@
 package com.guitarshop.specs;
 
-public enum Style implements SpecValue<Style> {
-  A, F;
+public enum Style implements SpecValue {
+  A("A"), F("A");
+  private final String name;
+  
+  Style(String s) {
+    name = s;
+  }
+  
   
   /**
    * Validates a string value as Mandolin Style enum value
@@ -10,25 +16,24 @@ public enum Style implements SpecValue<Style> {
    * @return enum value derived from param
    * @throws IllegalArgumentException if raw string could not get validated
    */
-  public static Style validate (String value) throws IllegalArgumentException {
+  public static Style validate(String value) throws IllegalArgumentException {
     for (Style t : Style.values())
-      if (t.equals (
-          value.toUpperCase().replaceAll (" ", "")))
+      if (t.name.equalsIgnoreCase(
+          value.replaceAll(" ", "")))
         return t;
-    throw new IllegalArgumentException (String.format ("%s is no such mandolin style", value));
+    throw new IllegalArgumentException(String.format("%s is no such mandolin style", value));
   }
   
   /**
    * Tests equality of a known Mandolin Style value against a raw string value
    *
-   * @param standard enum value to compare against
    * @param value    raw value that is being tested
    * @return Returns <code>true</code> if values are equal; <code>false</code> otherwise
    */
-  public boolean testEquality (Style standard, String value) {
+  public boolean equals(String value) {
     try {
-      SoundType test = SoundType.validate (value);
-      return standard.equals(test);
+      Style test = Style.validate(value);
+      return this == test;
     } catch (IllegalArgumentException e) {
       return false;
     }

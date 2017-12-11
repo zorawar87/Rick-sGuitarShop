@@ -1,7 +1,9 @@
 package com.guitarshop.specs;
 
-public interface SpecValue<E extends Enum> {
-  boolean testEquality(E standard, String value);
+public interface SpecValue {
+  default boolean equals(String value){
+    return this.equals(value);
+  }
   
   /**
    * Tests equality of two <code>SpecValue</code> values.

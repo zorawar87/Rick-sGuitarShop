@@ -6,7 +6,7 @@ package com.guitarshop.specs;
  * @since 2.0
  * @version 2.0
  */
-public enum InstrumentName implements SpecValue<InstrumentName> {
+public enum InstrumentName implements SpecValue {
   GUITAR("Guitar"), MANDOLIN("Mandolin"), BANJO("Banjo"), DOBRO("Dobro"), FIDDLE("Fiddle"), BASS("Bass");
   private final String name;
   
@@ -16,8 +16,8 @@ public enum InstrumentName implements SpecValue<InstrumentName> {
   
   public static InstrumentName validate(String value) throws IllegalArgumentException {
     for (InstrumentName i : InstrumentName.values()) {
-      if (i.name.toLowerCase().replaceAll (" ", "")
-          .equals (value.toLowerCase().replaceAll (" ", ""))) {
+      if (i.name.replaceAll (" ", "")
+          .equalsIgnoreCase (value.replaceAll (" ", ""))) {
         return i;
       }
     }
@@ -28,16 +28,18 @@ public enum InstrumentName implements SpecValue<InstrumentName> {
   /**
    * Tests equality of a known Instrument Name value against a raw string value
    *
-   * @param standard enum value to compare against
    * @param value    raw value that is being tested
    * @return Returns <code>true</code> if values are equal; <code>false</code> otherwise
    */
-  public boolean testEquality(InstrumentName standard, String value){
+  public boolean equals(String value){
     try {
       InstrumentName test = InstrumentName.validate (value);
-      return standard == test;
+      return this == test;
     } catch (IllegalArgumentException e) {
       return false;
     }
   }
+  
+  @Override
+  public String toString(){ return name; }
 }
