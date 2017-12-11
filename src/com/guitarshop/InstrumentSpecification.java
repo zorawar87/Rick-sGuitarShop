@@ -1,6 +1,6 @@
 package com.guitarshop;
 
-import com.guitarshop.specs.SpecValue;
+import com.guitarshop.specs.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,11 +11,21 @@ public class InstrumentSpecification {
   
   public InstrumentSpecification() {
     spec = new HashMap <>(7);
+    addNewProperty("instrument name", InstrumentName.WILDCARD);
+    addNewProperty("type", SoundType.WILDCARD);
+    addNewProperty("builder", Builder.WILDCARD);
+    addNewProperty("back wood", Wood.WILDCARD);
+    addNewProperty("top wood", Wood.WILDCARD);
+    addNewProperty("model", Model.createModel("*"));
   }
   
   // TODO: prohibit if property and value are not of the same type
-  public InstrumentSpecification addProperty(String property, SpecValue value){
+  public InstrumentSpecification addNewProperty(String property, SpecValue value){
     spec.put(property,value);
+    return this;
+  }
+  public InstrumentSpecification updateProperty(String property, SpecValue value){
+    spec.replace(property,value);
     return this;
   }
   

@@ -1,5 +1,7 @@
 package com.guitarshop;
 
+import com.guitarshop.specs.SpecValue;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -101,28 +103,12 @@ public class Inventory {
    * @throws IllegalArgumentException if invalid field or value is injected
    */
   public void replace(int serialNo, String field,
-                      String value) throws NoSuchElementException, IllegalArgumentException {
+                      SpecValue value) throws NoSuchElementException {
     if (!stock.containsKey(serialNo))
       throw new NoSuchElementException(String.format("Instrument #%d is not in stock.",
           serialNo));
-    Instrument g = stock.get(serialNo);
-    /*
-    if (purify(field).equals("brand")) g.add(value);
-    else if (purify(field).equals("model")) g.setModel(value);
-    else if (purify(field).equals("price"))
-      try {
-        Float.parseFloat(value);
-        g.setPrice(Float.parseFloat(value));
-      } catch (NumberFormatException e) {
-        throw new IllegalArgumentException(
-            String.format("Price can only be a decimal. %s is not.", value));
-      }
-    else if (purify(field).equals("soundtype")) g.setSoundType(value);
-    else if (purify(field).equals("topwood")) g.setTopWood(value);
-    else if (purify(field).equals("backwood")) g.setBackWood(value);
-    else throw new IllegalArgumentException(
-          String.format("%s is not an editable field.", (String) field));
-          */
+    Instrument i = stock.get(serialNo);
+    i.updateProperty(field,value);
   }
 
   /*

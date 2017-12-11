@@ -2,9 +2,7 @@ package com.guitarshop;
 
 import com.guitarshop.specs.*;
 
-import java.util.List;
 import java.util.Collection;
-import java.util.NoSuchElementException;
 
 /**
  * Tests the guitar inventory
@@ -23,7 +21,7 @@ public class InventoryTest {
   public static void main (String args[]) {
     System.out.println ("Testing the inventory for Rick's Instrument Shop");
     addToCollectionTest();
-    //modifyTest();
+    modifyTest();
     //searchTest();
     //removeTest();
     System.out.println ("All Tests passed.");
@@ -33,58 +31,23 @@ public class InventoryTest {
   private static void addToCollectionTest() {
     System.out.println ("Test#1: Adding to collection.");
     System.out.println ("\t\tTest#1.1: Testing proper input, case and whitespace insensitivity, and some errors.");
+    
     InstrumentSpecification is = new InstrumentSpecification();
-    is.addProperty("instrument name", InstrumentName.GUITAR).addProperty("builder", Builder.GIBSON).addProperty("model", Model.createModel("something"))
-      .addProperty("type", SoundType.ACOUSTIC).addProperty("top wood", Wood.ROSEWOOD)
-        .addProperty("back wood", Wood.CEDAR);
+    inv.addToCollection (new Instrument (is, 321));
+    is = new InstrumentSpecification();
+    is.addNewProperty("instrument name", InstrumentName.GUITAR).addNewProperty("builder", Builder.GIBSON).addNewProperty("model", Model.createModel("something"))
+      .addNewProperty("type", SoundType.ACOUSTIC).addNewProperty("top wood", Wood.ROSEWOOD)
+        .addNewProperty("back wood", Wood.CEDAR);
     inv.addToCollection (new Instrument (is, 123));
-        /*
-    gs = InstrumentSpecification.builder()
-         .withBrand ("Paul Reed Smith").withModel ("fancy")
-         .withSoundType ("El ecTr ic").withWood ("alder", "mahogany")
-         .build();
-    inv.addToCollection (new Instrument (gs, 222));
-    gs = InstrumentSpecification.builder()
-         .withBrand ("fEn dEr    ").withModel ("works")
-         .withSoundType ("AcOUSTic").withWood ("Cedar", "alder")
-         .build();
-    inv.addToCollection (new Instrument (gs, 299.99));
-    gs = InstrumentSpecification.builder()
-         .withBrand ("  Ya Ma Ha  ").withModel ("xx5321")
-         .withSoundType ("electric").withWood ("Cedar", "alder")
-         .build();
-    inv.addToCollection (new Instrument (gs, 315.99));
-    System.out.println ("\t\tTest#1.2: Testing incorrect methods." +
-                        "These will throw IllegalArgumentExceptions to be handled by the UI.");
-    try {
-      gs = InstrumentSpecification.builder()
-           .withBrand ("IbAnEz").withModel ("works")
-           .withSoundType ("Electric").withWood ("rosewod", "Cedar")
-           .build();
-      inv.addToCollection (new Instrument (gs, 299.99));
-    } catch (IllegalArgumentException e) {
-      System.out.println ("\t\t\tCaught Exception: " + e);
-    }
-    try {
-      gs = InstrumentSpecification.builder()
-           .withBrand ("Ibanez").withModel ("works")
-           .withSoundType ("Electrics").withWood ("rosewod", "Cedar")
-           .build();
-      inv.addToCollection (new Instrument (gs, 299.99));
-    } catch (IllegalArgumentException e) {
-      System.out.println ("\t\t\tCaught Exception: " + e);
-    }
-    try {
-      gs = InstrumentSpecification.builder()
-           .withBrand ("IbAnE").withModel ("works")
-           .withSoundType ("Eectric").withWood ("rosewod", "Cedar")
-           .build();
-      inv.addToCollection (new Instrument (gs, 299.99));
-    } catch (IllegalArgumentException e) {
-      System.out.println ("\t\t\tCaught Exception: " + e);
-    }
-
-*/
+    is = new InstrumentSpecification();
+    is.addNewProperty("instrument name", InstrumentName.MANDOLIN).addNewProperty("builder", Builder.PAULREEDSMITH).addNewProperty("model", Model.createModel("Fancy"))
+      .addNewProperty("type",SoundType.ELECTRIC).addNewProperty("top wood",Wood.ALDER).addNewProperty("back wood",Wood.ROSEWOOD);
+    inv.addToCollection (new Instrument (is, 222));
+    is = new InstrumentSpecification();
+    is.addNewProperty("instrument name", InstrumentName.DOBRO).addNewProperty("builder", Builder.FENDER).addNewProperty("model", Model.createModel("works"))
+        .addNewProperty("type",SoundType.ACOUSTIC).addNewProperty("top wood",Wood.MAHOGANY).addNewProperty("back wood",Wood.CEDAR);
+    inv.addToCollection (new Instrument (is, 299.99));
+    
     System.out.println ("Test#1: Passed.\nState of inventory:");
     display (inv.getStockContents());
   }
@@ -92,28 +55,14 @@ public class InventoryTest {
   private static void modifyTest() {
     System.out.println ("Test#2: Modifying collection.");
     System.out.println ("\t\tTest#2.1: Testing proper input, case and whitespace insensitivity, and some errors.");
-    inv.replace (4, "topwood", "Mahogany");
-    inv.replace (4, "back wOOd", "rose wood");
-    inv.replace (4, "model", "y4m4h4 r0s3 w00d");
-    inv.replace (4, "PRice   ", "599.99");
-    inv.replace (4, "PRi ce   ", "99");
-    System.out.println ("\t\tTest#2.2: Testing incorrect methods." +
-                        "These will throw IllegalArgumentExceptions and NoSuchElement Exception to be handled by the UI.");
-    try {
-      inv.replace (3, "PRicE   ", "60a0.99");
-    } catch (IllegalArgumentException e) {
-      System.out.println ("\t\t\tCaught Exception: " + e);
-    }
-    try {
-      inv.replace (3, "PRiDE   ", "600.99");
-    } catch (IllegalArgumentException e) {
-      System.out.println ("\t\t\tCaught Exception: " + e);
-    }
-    try {
-      inv.replace (22, "PRice   ", "600.99");
-    } catch (NoSuchElementException e) {
-      System.out.println ("\t\t\tCaught Exception: " + e);
-    }
+  
+    inv.replace (1, "instrument name", InstrumentName.BASS);
+    inv.replace (1, "builder", Builder.IBANEZ);
+    inv.replace (1, "type", SoundType.ELECTRIC);
+    inv.replace (1, "top wood", Wood.ROSEWOOD);
+    inv.replace (1, "back wood", Wood.ROSEWOOD);
+    inv.replace (1, "model", Model.createModel("y4m4h4 r0s3 w00d"));
+    
     System.out.println ("Test#2: Passed.\nState of inventory:");
     display (inv.getStockContents());
   }
